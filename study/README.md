@@ -1,6 +1,6 @@
 # Local Bayesian study companion
 
-A visual companion for studying Lectures 1–5 with the tutor in the existing conversation. Lectures 3–5 now have **35 full tutor lessons** (13, 10 and 12 respectively), covering every source slide; four earlier focused lessons remain available. It renders focused lessons and the indexed lecture notes with equations and original-page figures. It is **not an AI chatbot**, automatic grader or labsheet runner.
+A visual companion for studying Lectures 1–8 with the tutor in the existing conversation. Lectures 3–8 have **68 full tutor lessons** (13, 10, 12, 13, 9 and 11 respectively), covering all 145 source slides in those lectures; four earlier focused lessons remain available, for **72 lessons total**. All eight sources contain 196 slides across 136 original pages. It renders focused lessons and the indexed lecture notes with equations and original-page figures. It is **not an AI chatbot**, automatic grader or labsheet runner.
 
 ## Run from the repository root
 
@@ -48,4 +48,8 @@ Notes, teach-back answers and self-assessed progress are stored in the browser l
 
 ## Source limitations
 
-Lecture 2 slide 28 is clipped in the PDF. Missing text is not invented. Administrative dates and historical examples are preserved as lecture material, not updated professional or administrative guidance. Lecture 5's full predictive derivation and evidence-based hyperparameter fitting are previews for later teaching, not completed topics in these five lectures.
+Lecture 2 slide 28 is clipped in the PDF. Missing text is not invented. Administrative dates and historical examples are preserved as lecture material, not updated professional or administrative guidance. Lecture 5's full predictive derivation and evidence-based hyperparameter fitting are previews for later teaching, not completed topics within Lecture 5; Lectures 6–8 now develop prediction, evidence and numerical approximation in separate lessons.
+
+Lectures 6–8 remain **Not started** by default. New lessons explain the Gaussian predictive variance, evidence and Type-II approximation, bounded log-scale priors and Jacobians, posterior-weighted grid mixtures, width/model averaging, Monte Carlo conditions, self-normalised importance sampling and high-dimensional geometry. Source notation ambiguities and corrections are visible beside the relevant material; unavailable demo results are not reconstructed. Proper priors and explicit model priors matter for evidence comparisons. MCMC is a preview, not a complete implemented algorithm or proof.
+
+Lecture-note deep links and locally saved writing now support Lectures 6–8 as well (for example `#notes/8/slide-25`). The browser storage key and format are unchanged, so earlier notes and self-assessments are preserved. No model fitting, sampling demo or labsheet is executed by the app.

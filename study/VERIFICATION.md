@@ -1,4 +1,36 @@
-# Verification — 14 October 2026
+# Verification — 15 October 2026
+
+## Eight-lecture integration: fresh evidence
+
+- `npm test`: **110 passed, 0 failed**. Covers eight sources, 72 lessons, all 196 unique source slides, page counts `[20, 13, 17, 11, 15, 21, 12, 27]`, full tutor coverage of all 145 slides in Lectures 3–8, source-page mappings, topic links, the ordered global lesson chain, 136 readable original-page PNGs, accessible math, new checkpoint/answer/teach-back structure and meaningful prerequisite metadata. Existing security, rejected-write, HEAD, traversal/symlink, corrupt-storage, tab-merge and stale-state unit checks remain.
+- `npm run check`: all application modules pass Node syntax checks. `node --check study/test/browser-smoke.mjs` also passes. This buildless application has no separate compilation/typecheck step.
+- Regression-first proof: three new narrow tests for Lecture 6–8 course validation, allowed routes and note persistence failed against the old five-lecture limits, then passed after the minimal eight-lecture range changes. Lecture 9 remains rejected.
+- `npm run test:browser`: **passed** in an isolated headless Chromium session and an ephemeral loopback server, with the temporary environment override described below. It verifies all eight source renderers and PDF/Markdown/slide-link rewrites; all 72 lesson renderers and grouped picker options; navigation to each full-lesson lecture and its last lesson; global next links across 5→6→7→8; source-note deep links/TOCs and loaded original-page rail images for all eight lectures; and retained existing sanitisation, keyboard-scrollability, failed-save, stale-request, skip-link and unreadable-state recovery/export checks.
+- Browser persistence: new Lecture 8 lesson notes and teach-back survive a real reload; separate Lecture 6, 7 and 8 lecture notes/answers also survive reload.
+- Mobile browser checks: **375px**, no document-level horizontal overflow on all eight source-note views or any of the 33 new lessons.
+- Preservation check: 49 pre-existing Lecture 1–5 source/PDF/lesson files retain their pre-integration SHA-256 bytes. Original lecture/topic metadata, old lesson metadata (except the requested final next link), warnings, current lesson, storage key and state version are unchanged.
+
+The initial browser launch failed because this host lacked `libnspr4.so`, NSS and ALSA shared libraries. Recovery downloaded/extracted system packages only under `/tmp/bayes-browser-libs`, without installing them or changing application dependencies. The successful command was:
+
+```sh
+LD_LIBRARY_PATH=/tmp/bayes-browser-libs/extracted/usr/lib/x86_64-linux-gnu npm run test:browser
+```
+
+A normally provisioned Chromium host does not need this override. QA browser sessions and ephemeral servers close after the run. No existing user server is restarted. This fresh check does not claim a new axe audit, comprehensive accessibility certification, or execution of lecture demos/labsheets.
+
+## Curriculum and source boundaries
+
+- Lectures 6, 7 and 8 add **13, 9 and 11 lessons**, covering all **28, 20 and 26 slides** respectively and retaining **21, 12 and 27 original PDF pages**.
+- Total: eight sources, 196 slides, 136 original pages, 72 lessons. There are 68 full tutor lessons for Lectures 3–8 plus four earlier focused lessons.
+- Resume point remains `l3-bayesian-workflow` (Lecture 3 slides 6–7). All newly prepared topics default to **Not started**; no opening or content preparation declares mastery.
+- Literal source equations and plots remain distinguishable from explanatory derivations/corrections. Log-prior densities and measures, grid-versus-iid-Monte-Carlo language, normalised predictive posterior weights, sigma-versus-variance notation and high-dimensional-volume ambiguities are explicitly qualified. Unavailable demonstration results and basis-family winners are not invented.
+- `study/content/COVERAGE.md` lists every full lesson and source-slide grouping.
+
+## Historical evidence below
+
+The following earlier record applies to the five-lecture version and is retained for provenance. Its screenshot, axe and audit claims were not rerun as part of this integration.
+
+# Historical verification — 14 October 2026
 
 ## Automated
 

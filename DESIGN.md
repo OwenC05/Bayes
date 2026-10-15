@@ -1,25 +1,25 @@
 # Design
 
 ## Source of truth
-Status: Active. Date: 2026-10-14. Surface: a local browser-based study companion for Bayesian Machine Learning lectures 1–5.
+Status: Active. Date: 2026-10-15. Surface: a local browser-based study companion for Bayesian Machine Learning lectures 1–8.
 
-Evidence: `BayesLec/README.md`, `BayesLec/1.md` through `5.md`, their original-page images in `BayesLec/assets/`, and the tutoring conversation. The existing application is the buildless study/ companion; preserve its warm notebook styling and local-storage contract. The source lecture files are read-only inputs and must not be rewritten.
+Evidence: `BayesLec/README.md`, `BayesLec/1.md` through `8.md`, their original-page images in `BayesLec/assets/`, and the tutoring conversation. The existing application is the buildless study/ companion; preserve its warm notebook styling and local-storage contract. The source lecture files are read-only inputs and must not be rewritten.
 
 ## Brand
 An attentive mathematical notebook: calm, precise, warm, and editorial. Trust comes from slide references, visible source limitations, and honest progress labels. Avoid marketing copy, neon gradients, decorative dashboards, fabricated metrics, and claims of automatic mastery.
 
 ## Product goals
-Render equations and original lecture diagrams correctly. Put a focused teaching lesson beside its source. Navigate all five lectures and an explicit prerequisite-aware roadmap. Save notes, teach-back answers, and self-assessed progress locally. Let the tutor update lesson content through repository files without rebuilding the app.
+Render equations and original lecture diagrams correctly. Put a focused teaching lesson beside its source. Navigate all eight lectures and an explicit prerequisite-aware roadmap. Save notes, teach-back answers, and self-assessed progress locally. Let the tutor update lesson content through repository files without rebuilding the app.
 
 Non-goals: hosted deployment, accounts, an AI-chat backend, automatic grading, exams, labsheet execution, cloud sync, and lecture authoring in the browser.
 
-Success: Lecture 3 slide 6 is the resume lesson; all slides in Lectures 3–5 map to full tutor lessons; every lecture can be read with mathematics and original figures; source links reach the appropriate slide; notes and progress survive reload; all essential interactions work on a phone and with a keyboard.
+Success: Lecture 3 slide 6 is the resume lesson; all slides in Lectures 3–8 map to full tutor lessons; every lecture can be read with mathematics and original figures; source links reach the appropriate slide; notes and progress survive reload; all essential interactions work on a phone and with a keyboard.
 
 ## Personas and jobs
 One student studying interactively with a tutor in the existing chat. They need to understand and explain the complete lecture material to a beginner, not just recognise formulas. Desktop reading is primary; phone review is supported.
 
 ## Information architecture
-A left course navigation for lectures 1–5. Main tabs: Lesson, Lecture notes, Roadmap. The lesson has an accessible grouped lesson selector, explicit source-slide links, explanations, worked derivations/examples, equations, prerequisites, and a teach-back prompt. Course navigation opens available lessons, with the original notes one tab away. Multiple lessons for a roadmap topic are all linked. Lecture 3–5 coverage is checked against every source slide; opening lessons does not declare mastery. A right study rail contains the current source image and personal notes/teach-back. Lecture notes have a slide table of contents and original-page expanders. The roadmap distinguishes introduced material, current material, and not-yet-started topics.
+A left course navigation for lectures 1–8. Main tabs: Lesson, Lecture notes, Roadmap. The lesson has an accessible grouped lesson selector, explicit source-slide links, explanations, worked derivations/examples, equations, prerequisites, and a teach-back prompt. Course navigation opens available lessons, with the original notes one tab away. Multiple lessons for a roadmap topic are all linked. Lecture 3–8 coverage is checked against every source slide; opening lessons does not declare mastery. A right study rail contains the current source image and personal notes/teach-back. Lecture notes have a slide table of contents and original-page expanders. The roadmap distinguishes introduced material, current material, and not-yet-started topics.
 
 ## Design principles
 One learning task at a time. Content before controls. Keep original material distinguishable from tutor explanations. Introduced is not mastered. Never invent missing source content. Show mathematical structure rather than raw LaTeX; retain accessible text alternatives. Keep user writing safe during content refresh.
@@ -48,3 +48,9 @@ Buildless HTML/CSS/ES modules and a small Node standard-library local server, bo
 ## Open questions
 - [x] Rendering libraries approved: pinned local Marked, KaTeX and DOMPurify; no CDN runtime requests.
 - [ ] Future in-app AI chat: intentionally deferred; owner: user; impact: would introduce a separate integration and privacy/cost contract.
+
+## Curriculum extension — Lectures 6–8
+
+The same notebook interface now includes all eight source decks (196 slides, 136 PDF pages), 72 focused lessons, and complete tutor coverage of all 145 slides in Lectures 3–8. Lectures 6, 7 and 8 contribute 13, 9 and 11 lessons. Existing Lecture 1–5 source text, PDFs, earlier lesson IDs, personal-state format and current teaching point are preserved. New topics are prepared, not learned; default status is not-started.
+
+Source transcriptions retain literal equations and original-page figures, with explicit supplemental warnings about log-prior measures/Jacobians, grid versus iid Monte Carlo, predictive-mixture normalisation and the source’s high-dimensional-volume ambiguity. No unavailable demo outputs are invented. The lesson chain spans lectures, while the resume lesson remains `l3-bayesian-workflow`. No dependency, layout redesign, backend write route or deployment is introduced.

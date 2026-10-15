@@ -1,6 +1,6 @@
 # Lecture lesson coverage
 
-Prepared tutor lessons for Lectures 3–5. Source slides are grouped into coherent learning units; each unit adds prerequisite bridges, explanations, worked examples and teach-back. **Prepared does not mean learned or mastered.**
+Prepared tutor lessons for Lectures 3–8. Source slides are grouped into coherent learning units; each unit adds prerequisite bridges, explanations, worked examples and teach-back. **Prepared does not mean learned or mastered.**
 
 Current teaching point: Lecture 3, slide 6, `l3-bayesian-workflow`. Original `BayesLec` files remain the source inputs.
 
@@ -60,10 +60,69 @@ Current teaching point: Lecture 3, slide 6, `l3-bayesian-workflow`. Original `Ba
 | [Sequential learning in weight space and function space](lessons/l5-sequential-learning.md) | 17, 18, 19, 20, 21, 22 |
 | [What Lecture 5 establishes—and what remains a preview](lessons/l5-summary-previews.md) | 23 |
 
+## Lecture 6: Marginalisation & evidence
+
+13 lessons covering all 28 source slides.
+
+| Lesson | Source slides |
+| --- | --- |
+| [Why a MAP curve is not the whole Bayesian answer](lessons/l6-map-marginalisation.md) | 1, 2, 3 |
+| [Rebuild the Gaussian linear-regression model](lessons/l6-gaussian-recap.md) | 4 |
+| [The full predictive distribution and its nuisance variables](lessons/l6-full-predictive.md) | 5, 6, 7 |
+| [A ladder of predictions and the analytic roadblock](lessons/l6-inference-ladder.md) | 8, 9 |
+| [Type-II inference: exact factorisation, point approximation](lessons/l6-type-ii.md) | 10, 11 |
+| [Derive the Gaussian marginal likelihood](lessons/l6-evidence-gaussian.md) | 12 |
+| [Select hyperparameters with evidence, not training fit](lessons/l6-evidence-selection.md) | 13 |
+| [Read the regularisation and evidence demonstrations](lessons/l6-regularisation-demo.md) | 14, 15, 16, 17 |
+| [Occam’s razor is an average, not a maximum](lessons/l6-occam-average.md) | 18, 19, 20 |
+| [Learn regularisation and observation noise together](lessons/l6-joint-noise.md) | 21, 22, 23, 24 |
+| [Derive the Type-II predictive mean and variance](lessons/l6-predictive-gaussian.md) | 25 |
+| [Read predictive bands where data are present and absent](lessons/l6-uncertainty-bands.md) | 26, 27 |
+| [Beyond weights: basis families and RBF widths](lessons/l6-model-selection-preview.md) | 28 |
+
+## Lecture 7: Fully-Bayesian inference
+
+9 lessons covering all 20 source slides.
+
+| Lesson | Source slides |
+| --- | --- |
+| [Evidence and the implicit Occam effect](lessons/l7-occam-recap.md) | 1, 2, 3 |
+| [The full predictive target and the analytic roadblock](lessons/l7-bayesian-target.md) | 4, 5, 6 |
+| [Type-II estimation: what it keeps and what it discards](lessons/l7-type-ii-limits.md) | 7, 8, 9, 10, 11 |
+| [What the RBF width changes](lessons/l7-basis-width.md) | 12, 13 |
+| [Bounded log priors and consistent integration measures](lessons/l7-log-priors.md) | 14 |
+| [Numerical evidence: grid quadrature is not iid Monte Carlo](lessons/l7-numerical-evidence.md) | 15, 16 |
+| [Predict with posterior-weighted components](lessons/l7-predictive-mixture.md) | 17, 18 |
+| [Integrate width and compare basis families](lessons/l7-width-model-averaging.md) | 19 |
+| [Why the grid approach stops scaling](lessons/l7-grid-limits.md) | 20 |
+
+## Lecture 8: Monte Carlo & importance sampling
+
+11 lessons covering all 26 source slides.
+
+| Lesson | Source slides |
+| --- | --- |
+| [Why Bayesian learning needs stochastic integration](lessons/l8-integration-roadmap.md) | 1, 2, 3 |
+| [Monte Carlo averages and their actual error rate](lessons/l8-monte-carlo.md) | 4, 5, 6, 7 |
+| [Inverse-CDF sampling and the Cauchy warning](lessons/l8-inverse-cdf.md) | 8, 9 |
+| [Targets known only up to a normalising constant](lessons/l8-unnormalised-targets.md) | 10, 11 |
+| [Why grids and uniform proposals fail in many dimensions](lessons/l8-dimensionality.md) | 12, 13, 14, 15 |
+| [Deriving self-normalised importance sampling](lessons/l8-importance-weights.md) | 16, 17 |
+| [Reading the importance-sampling illustration](lessons/l8-importance-plots.md) | 18, 19 |
+| [Bad proposals, rare weights and deceptive plateaus](lessons/l8-bad-proposals.md) | 20, 21 |
+| [What a Cauchy proposal improves—and what it cannot guarantee](lessons/l8-heavy-tailed-proposals.md) | 22, 23, 24 |
+| [Where high-dimensional Gaussian probability mass lives](lessons/l8-gaussian-mass.md) | 25 |
+| [MCMC preview: local moves, correlated samples](lessons/l8-mcmc-preview.md) | 26 |
+
 ## Scope and caveats
 
 - Lecture 3 lab material is a conceptual preview; the labsheet has not been run.
 - Lecture 4 historical/medical/legal examples are source case studies, not current professional guidance. Ambiguous slide12/13 arithmetic and slide22 Medicine rates are flagged explicitly.
-- Lecture 5 full predictive derivations, evidence-based hyperparameter fitting and model/basis-width selection remain explicitly signposted previews.
+- Lecture 5 full predictive derivations, evidence-based hyperparameter fitting and model/basis-width selection remain previews within Lecture 5; later lectures now develop those topics separately.
 - Supplemental derivations and numerical examples are labelled; no missing source diagrams or demo outputs are invented.
 - Runtime metadata is maintained in `course.json`. The test suite validates slide coverage, topic links, source pages, images, navigation and all equations.
+
+- Lectures 6–8 add 33 lessons covering all 74 slides; all 60 new original PDF pages are embedded. Total: 72 lessons, including 68 full lessons covering all 145 slides in Lectures 3–8, plus four earlier focused lessons. All eight sources contain 196 slides and 136 original pages.
+- Lecture 6 distinguishes analytic weight marginalisation from hyperparameter point estimation; sigma annotations denote standard deviations, and flat-log-prior claims require specifying the density coordinates.
+- Lecture 7 distinguishes consistent sigma/sigma-squared measures, deterministic grid quadrature from iid Monte Carlo, and prior-cell masses from posterior predictive weights. Model-family comparison requires proper priors and explicit model probabilities.
+- Lecture 8 distinguishes variance from standard error, ordinary from self-normalised importance sampling, finite-variance assumptions and rare-event failure, and mass from density in high dimensions. The source’s ambiguous geometry is qualified. MCMC remains a conceptual preview.
