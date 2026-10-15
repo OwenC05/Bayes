@@ -253,7 +253,7 @@ function makeAssessment(topic) {
 }
 
 function showRoadmap() {
-  $('eyebrow').textContent = 'Lectures 01–05 / Learning roadmap';
+  $('eyebrow').textContent = 'Lectures 01–08 / Learning roadmap';
   $('page-title').textContent = 'From understanding to explaining.';
   $('page-description').textContent = 'Finish the probability toolkit, revisit the motivation, then work through inference, decisions and regression. Prerequisites appear where they are needed.';
   $('roadmap-body').replaceChildren(...catalog.lectures.map(lecture => {

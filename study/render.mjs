@@ -67,8 +67,8 @@ export async function loadRenderer() {
     }
     for (const link of element.querySelectorAll('a[href]')) {
       const href = link.getAttribute('href');
-      if (/^[1-5]\.pdf$/.test(href)) link.href = `/lectures/${href}`;
-      else if (/^[1-5]\.md$/.test(href)) link.href = `#notes/${href[0]}`;
+      if (/^[1-8]\.pdf$/.test(href)) link.href = `/lectures/${href}`;
+      else if (/^[1-8]\.md$/.test(href)) link.href = `#notes/${href[0]}`;
       else if (/^https?:\/\//.test(href)) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
       else if (href.startsWith('#slide-') && lectureId) link.href = `#notes/${lectureId}/${href.slice(1)}`;
     }

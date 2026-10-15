@@ -12,7 +12,7 @@ const validateMath = createMarkdownRenderer(Marked, {
   renderToString: (tex, options) => katex.renderToString(tex, { ...options, throwOnError: true })
 });
 
-for (const lecture of [1, 2, 3, 4, 5]) {
+for (const lecture of [1, 2, 3, 4, 5, 6, 7, 8]) {
   test(`lecture ${lecture} renders its source text and equations without KaTeX errors`, async () => {
     const source = await readFile(resolve(`BayesLec/${lecture}.md`), 'utf8');
     assert.doesNotMatch(validateMath(source), /class="katex-error"/);

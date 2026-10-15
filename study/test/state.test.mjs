@@ -83,3 +83,19 @@ test('unsafe storage keys do not reach object prototypes', () => {
   assert.deepEqual(loaded.state.notes, {});
   assert.deepEqual(loaded.state.progress, {});
 });
+
+test('lecture 6–8 notes survive reload and new deep links stay scoped', () => {
+  const storage = memoryStorage();
+  const state = emptyState();
+  const catalog = { currentLesson: 'gamma', lessons: [{ id: 'gamma' }], lectures: [6, 7, 8].map(id => ({ id })) };
+  for (const id of [6, 7, 8]) {
+    state.notes[`lecture:${id}`] = { notes: `Lecture ${id} draft`, answer: `Lecture ${id} explanation`, updatedAt: '2026-10-15' };
+    assert.deepEqual(parseRoute(`#notes/${id}/slide-2`, catalog), { view: 'notes', lectureId: id, anchor: 'slide-2' });
+  }
+  state.notes['lecture:9'] = { notes: 'Outside supported range' };
+  assert.equal(persistState(storage, state).saved, true);
+  const loaded = readState(storage).state;
+  for (const id of [6, 7, 8]) assert.deepEqual(loaded.notes[`lecture:${id}`], state.notes[`lecture:${id}`]);
+  assert.equal(loaded.notes['lecture:9'], undefined);
+  assert.deepEqual(parseRoute('#notes/9/slide-2', catalog), { view: 'lesson', lessonId: 'gamma' });
+});

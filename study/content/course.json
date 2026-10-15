@@ -458,6 +458,191 @@
           "prerequisites": []
         }
       ]
+    },
+    {
+      "id": 6,
+      "shortTitle": "Marginalisation & evidence",
+      "title": "Marginalisation & Type-II Maximum Likelihood",
+      "description": "Average uncertain weights for prediction; use evidence to estimate hyperparameters, understand Occam’s razor, and retain the limits of point approximations.",
+      "topics": [
+        {
+          "id": "l6-predictive-framework",
+          "title": "From MAP to full predictive marginalisation",
+          "status": "not-started",
+          "slides": "1–9",
+          "prerequisites": []
+        },
+        {
+          "id": "l6-type-ii",
+          "title": "Type-II approximation and Gaussian marginal likelihood",
+          "status": "not-started",
+          "slides": "10–13",
+          "prerequisites": []
+        },
+        {
+          "id": "l6-evidence-demos",
+          "title": "Regularisation, validation and evidence demonstrations",
+          "status": "not-started",
+          "slides": "14–17",
+          "prerequisites": []
+        },
+        {
+          "id": "l6-occam",
+          "title": "Occam’s razor as prior-weighted averaging",
+          "status": "not-started",
+          "slides": "18–20",
+          "prerequisites": []
+        },
+        {
+          "id": "l6-joint-noise",
+          "title": "Concurrent noise and precision estimation",
+          "status": "not-started",
+          "slides": "21–24",
+          "prerequisites": []
+        },
+        {
+          "id": "l6-prediction",
+          "title": "Predictive Gaussian and uncertainty bands",
+          "status": "not-started",
+          "slides": "25–27",
+          "prerequisites": []
+        },
+        {
+          "id": "l6-model-selection",
+          "title": "Other unknowns and model-selection preview",
+          "status": "not-started",
+          "slides": "28",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "shortTitle": "Fully-Bayesian inference",
+      "title": "Fully-Bayesian Inference — Marginalising Over All Hyperparameters",
+      "description": "Move from Type-II point estimates to measure-aware numerical evidence and predictive mixtures, then integrate width and compare model families.",
+      "topics": [
+        {
+          "id": "l7-occam-recap",
+          "title": "Evidence and the implicit Occam effect",
+          "status": "not-started",
+          "slides": "1, 2, 3",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-bayesian-target",
+          "title": "The full predictive target and the analytic roadblock",
+          "status": "not-started",
+          "slides": "4, 5, 6",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-type-ii-limits",
+          "title": "Type-II estimation: what it keeps and what it discards",
+          "status": "not-started",
+          "slides": "7, 8, 9, 10, 11",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-basis-width",
+          "title": "What the RBF width changes",
+          "status": "not-started",
+          "slides": "12, 13",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-log-priors",
+          "title": "Bounded log priors and consistent integration measures",
+          "status": "not-started",
+          "slides": "14",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-numerical-evidence",
+          "title": "Numerical evidence: grid quadrature is not iid Monte Carlo",
+          "status": "not-started",
+          "slides": "15, 16",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-predictive-mixture",
+          "title": "Predict with posterior-weighted components",
+          "status": "not-started",
+          "slides": "17, 18",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-width-model-averaging",
+          "title": "Integrate width and compare basis families",
+          "status": "not-started",
+          "slides": "19",
+          "prerequisites": []
+        },
+        {
+          "id": "l7-grid-limits",
+          "title": "Why the grid approach stops scaling",
+          "status": "not-started",
+          "slides": "20",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "shortTitle": "Monte Carlo & importance sampling",
+      "title": "Monte Carlo and Importance Sampling",
+      "description": "Approximate Bayesian expectations with random draws; understand inverse-CDF sampling, unnormalised targets, proposal weights, high-dimensional geometry and the limits of an MCMC preview.",
+      "topics": [
+        {
+          "id": "l8-expectations",
+          "title": "Bayesian expectations, Monte Carlo and accuracy",
+          "status": "not-started",
+          "slides": "1–7",
+          "prerequisites": []
+        },
+        {
+          "id": "l8-inverse-cdf",
+          "title": "Inverse-CDF sampling and the Cauchy example",
+          "status": "not-started",
+          "slides": "8–9",
+          "prerequisites": []
+        },
+        {
+          "id": "l8-unnormalised",
+          "title": "Unnormalised targets and regression hyperparameters",
+          "status": "not-started",
+          "slides": "10–11",
+          "prerequisites": []
+        },
+        {
+          "id": "l8-geometry",
+          "title": "Curse of dimensionality: volume and Gaussian mass",
+          "status": "not-started",
+          "slides": "12–15, 25",
+          "prerequisites": []
+        },
+        {
+          "id": "l8-importance",
+          "title": "Self-normalised importance sampling and illustrations",
+          "status": "not-started",
+          "slides": "16–19",
+          "prerequisites": []
+        },
+        {
+          "id": "l8-importance-diagnostics",
+          "title": "Bad proposals, heavy tails and sampling diagnostics",
+          "status": "not-started",
+          "slides": "20–24",
+          "prerequisites": []
+        },
+        {
+          "id": "l8-mcmc",
+          "title": "Local proposals and the MCMC preview",
+          "status": "not-started",
+          "slides": "26",
+          "prerequisites": []
+        }
+      ]
     }
   ],
   "lessons": [
@@ -1513,7 +1698,821 @@
           "detail": "Alpha, noise variance and fixed RBF width play different roles from the fitted weights."
         }
       ],
-      "teachback": "Explain what full Bayesian regression adds beyond the ridge weight vector, and name the three topics that this lecture signposts rather than derives."
+      "teachback": "Explain what full Bayesian regression adds beyond the ridge weight vector, and name the three topics that this lecture signposts rather than derives.",
+      "next": "l6-map-marginalisation"
+    },
+    {
+      "id": "l6-map-marginalisation",
+      "title": "Why a MAP curve is not the whole Bayesian answer",
+      "deck": "See why an identical fitted mean can hide missing parameter uncertainty.",
+      "lecture": 6,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l6-map-marginalisation.md",
+      "topicId": "l6-predictive-framework",
+      "sourceSlides": [
+        1,
+        2,
+        3
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Lecture 5 gave a Gaussian posterior over regression weights. Its mean and mode coincide, and equal a penalised least-squares estimate. Recall that a probability distribution contains more information than its maximum."
+        }
+      ],
+      "teachback": "Explain why the same fitted curve can arise from PLS and MAP without making the two frameworks identical. What uncertainty is lost when only that curve is kept?",
+      "next": "l6-gaussian-recap"
+    },
+    {
+      "id": "l6-gaussian-recap",
+      "title": "Rebuild the Gaussian linear-regression model",
+      "deck": "Recover the weight posterior and its regularisation interpretation.",
+      "lecture": 6,
+      "slide": 4,
+      "page": 3,
+      "file": "lessons/l6-gaussian-recap.md",
+      "topicId": "l6-predictive-framework",
+      "sourceSlides": [
+        4
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Recall a design matrix: row n is the feature vector at input x_n. Distinguish covariance from precision and observation noise from weight uncertainty."
+        }
+      ],
+      "teachback": "Define the shapes of Phi, mu, Sigma and the two identity matrices in the model. Why is alpha a precision, and what is lambda?",
+      "next": "l6-full-predictive"
+    },
+    {
+      "id": "l6-full-predictive",
+      "title": "The full predictive distribution and its nuisance variables",
+      "deck": "Average weights, prior precision and noise to predict a new observation.",
+      "lecture": 6,
+      "slide": 5,
+      "page": 4,
+      "file": "lessons/l6-full-predictive.md",
+      "topicId": "l6-predictive-framework",
+      "sourceSlides": [
+        5,
+        6,
+        7
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Use the sum/product rules and Bayes’ rule. A nuisance variable is an unknown that is not the final quantity being predicted, not an irrelevant quantity."
+        }
+      ],
+      "teachback": "Write the fully Bayesian predictive integral and explain the roles of likelihood, weight prior, hyperpriors and the normalising evidence.",
+      "next": "l6-inference-ladder"
+    },
+    {
+      "id": "l6-inference-ladder",
+      "title": "A ladder of predictions and the analytic roadblock",
+      "deck": "Audit which unknowns each prediction framework retains.",
+      "lecture": 6,
+      "slide": 8,
+      "page": 5,
+      "file": "lessons/l6-inference-ladder.md",
+      "topicId": "l6-predictive-framework",
+      "sourceSlides": [
+        8,
+        9
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Keep a distinction between fitting a parameter, retaining a parameter posterior, and using that posterior in a predictive integral."
+        }
+      ],
+      "teachback": "Compare orthodox, MAP, fixed-hyperparameter Bayesian, Type-II and full Bayesian prediction. Which uncertainty does each keep or discard?",
+      "next": "l6-type-ii"
+    },
+    {
+      "id": "l6-type-ii",
+      "title": "Type-II inference: exact factorisation, point approximation",
+      "deck": "Separate exact factorisation from a hyperparameter point approximation.",
+      "lecture": 6,
+      "slide": 10,
+      "page": 7,
+      "file": "lessons/l6-type-ii.md",
+      "topicId": "l6-type-ii",
+      "sourceSlides": [
+        10,
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Recall conditional probability factorisation and a Dirac delta: integrating a function against a point mass evaluates the function at that point."
+        }
+      ],
+      "teachback": "Identify the exact and approximate steps in Type-II inference. Explain why flat log-priors require a parameterisation caveat when discussing a posterior mode.",
+      "next": "l6-evidence-gaussian"
+    },
+    {
+      "id": "l6-evidence-gaussian",
+      "title": "Derive the Gaussian marginal likelihood",
+      "deck": "Integrate weights to obtain the dataset covariance and density.",
+      "lecture": 6,
+      "slide": 12,
+      "page": 8,
+      "file": "lessons/l6-evidence-gaussian.md",
+      "topicId": "l6-type-ii",
+      "sourceSlides": [
+        12
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Recall that independent Gaussian random vectors add their covariances, and that multiplying a Gaussian vector by a matrix transforms its covariance."
+        }
+      ],
+      "teachback": "Derive C = sigma² I + alpha inverse Phi Phi transpose, explain its dimensions, and distinguish this evidence covariance from the weight posterior covariance.",
+      "next": "l6-evidence-selection"
+    },
+    {
+      "id": "l6-evidence-selection",
+      "title": "Select hyperparameters with evidence, not training fit",
+      "deck": "Balance fit and normalisation without confusing selection and evaluation.",
+      "lecture": 6,
+      "slide": 13,
+      "page": 8,
+      "file": "lessons/l6-evidence-selection.md",
+      "topicId": "l6-type-ii",
+      "sourceSlides": [
+        13
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Read the Gaussian log-density as a fit term plus a normalisation term. Validation chooses settings on held-out data; evidence uses the training dataset’s marginal density."
+        }
+      ],
+      "teachback": "Explain why optimising evidence can use the training data without a separate tuning split, and why that does not remove the need to assess generalisation.",
+      "next": "l6-regularisation-demo"
+    },
+    {
+      "id": "l6-regularisation-demo",
+      "title": "Read the regularisation and evidence demonstrations",
+      "deck": "Interpret the source’s fits, validation curves and evidence comparison.",
+      "lecture": 6,
+      "slide": 14,
+      "page": 9,
+      "file": "lessons/l6-regularisation-demo.md",
+      "topicId": "l6-evidence-demos",
+      "sourceSlides": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Recall lambda = sigma² alpha for the stated PLS convention. Training, validation and test errors answer different questions."
+        }
+      ],
+      "teachback": "Walk through slides 14–17: identify underfit and overfit, what validation selects, what evidence selects, and what the reported test numbers do and do not establish.",
+      "next": "l6-occam-average"
+    },
+    {
+      "id": "l6-occam-average",
+      "title": "Occam’s razor is an average, not a maximum",
+      "deck": "Understand complexity through prior-weighted likelihood averaging.",
+      "lecture": 6,
+      "slide": 18,
+      "page": 13,
+      "file": "lessons/l6-occam-average.md",
+      "topicId": "l6-occam",
+      "sourceSlides": [
+        18,
+        19,
+        20
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Recall evidence = integral of likelihood times prior. A normalised density has finite total mass even when its support covers a large space."
+        }
+      ],
+      "teachback": "Use the dataset-space schematic to explain why a flexible model can fit very well yet have lower evidence. Why does the weight prior matter?",
+      "next": "l6-joint-noise"
+    },
+    {
+      "id": "l6-joint-noise",
+      "title": "Learn regularisation and observation noise together",
+      "deck": "Read joint evidence maps and distinguish noise variance from standard deviation.",
+      "lecture": 6,
+      "slide": 21,
+      "page": 15,
+      "file": "lessons/l6-joint-noise.md",
+      "topicId": "l6-joint-noise",
+      "sourceSlides": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Distinguish sigma from sigma²; know why taking logarithms makes positive hyperparameters easier to display and why evidence includes a determinant."
+        }
+      ],
+      "teachback": "Explain the raw and log evidence heat maps and the zoomed noise estimate. How does lambda relate to prior precision and noise variance, and why is naive training-error tuning inadequate?",
+      "next": "l6-predictive-gaussian"
+    },
+    {
+      "id": "l6-predictive-gaussian",
+      "title": "Derive the Type-II predictive mean and variance",
+      "deck": "Derive the Gaussian prediction and its two variance contributions.",
+      "lecture": 6,
+      "slide": 25,
+      "page": 18,
+      "file": "lessons/l6-predictive-gaussian.md",
+      "topicId": "l6-prediction",
+      "sourceSlides": [
+        25
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Know the Gaussian weight posterior and the law of total variance. Treat the new observation noise as independent of training noise and weights."
+        }
+      ],
+      "teachback": "Derive the conditional predictive Gaussian and separate latent-function uncertainty from observation noise. Which uncertainty does Type-II still omit?",
+      "next": "l6-uncertainty-bands"
+    },
+    {
+      "id": "l6-uncertainty-bands",
+      "title": "Read predictive bands where data are present and absent",
+      "deck": "Interpret pointwise uncertainty bands and their modelling limits.",
+      "lecture": 6,
+      "slide": 26,
+      "page": 19,
+      "file": "lessons/l6-uncertainty-bands.md",
+      "topicId": "l6-prediction",
+      "sourceSlides": [
+        26,
+        27
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Use the predictive variance decomposition. A one-standard-deviation band is built from square roots of variances, not by adding standard deviations."
+        }
+      ],
+      "teachback": "Interpret both predictive plots. Why does uncertainty grow in an unobserved region, and why is a narrow band not a guarantee that the model is right?",
+      "next": "l6-model-selection-preview"
+    },
+    {
+      "id": "l6-model-selection-preview",
+      "title": "Beyond weights: basis families and RBF widths",
+      "deck": "Preview integrating or selecting basis families and RBF widths.",
+      "lecture": 6,
+      "slide": 28,
+      "page": 20,
+      "file": "lessons/l6-model-selection-preview.md",
+      "topicId": "l6-model-selection",
+      "sourceSlides": [
+        28
+      ],
+      "prerequisites": [
+        {
+          "title": "Before this lesson",
+          "detail": "Recall that every predictive distribution is conditional on modelling choices. Distinguish a discrete choice of basis family from a continuous width parameter."
+        }
+      ],
+      "teachback": "Explain how basis choice and RBF width could be selected or averaged. What must be integrated to obtain evidence conditional only on those remaining choices?",
+      "next": "l7-occam-recap"
+    },
+    {
+      "id": "l7-occam-recap",
+      "title": "Evidence and the implicit Occam effect",
+      "deck": "Read the recap plots without confusing evidence optimisation with full marginalisation.",
+      "lecture": 7,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l7-occam-recap.md",
+      "topicId": "l7-occam-recap",
+      "sourceSlides": [
+        1,
+        2,
+        3
+      ],
+      "prerequisites": [
+        {
+          "title": "Prior predictive density",
+          "detail": "Evidence averages the data likelihood over a normalised parameter prior; it is a density for continuous targets."
+        },
+        {
+          "title": "Precision and regularisation",
+          "detail": "The weight prior has precision alpha; with fixed noise variance the ridge coefficient is lambda = sigma-squared times alpha."
+        }
+      ],
+      "teachback": "Explain why a very flexible model can have lower evidence than a moderately flexible one, even when it achieves lower training error.",
+      "next": "l7-bayesian-target"
+    },
+    {
+      "id": "l7-bayesian-target",
+      "title": "The full predictive target and the analytic roadblock",
+      "deck": "Identify what is integrated, what is conditioned on, and what an approximation removes.",
+      "lecture": 7,
+      "slide": 4,
+      "page": 3,
+      "file": "lessons/l7-bayesian-target.md",
+      "topicId": "l7-bayesian-target",
+      "sourceSlides": [
+        4,
+        5,
+        6
+      ],
+      "prerequisites": [
+        {
+          "title": "Marginalisation",
+          "detail": "Integrating a joint density over an unknown variable removes it while preserving its uncertainty in remaining variables."
+        },
+        {
+          "title": "Conditional prediction",
+          "detail": "Given weights and noise scale, a new target is Gaussian around the fitted function; the new input is fixed."
+        }
+      ],
+      "teachback": "Write the full predictive integral and explain why an analytically Gaussian weight posterior does not make all hyperparameter integrals analytic.",
+      "next": "l7-type-ii-limits"
+    },
+    {
+      "id": "l7-type-ii-limits",
+      "title": "Type-II estimation: what it keeps and what it discards",
+      "deck": "Separate evidence maximisation, coordinate-dependent modes and uncertainty over hyperparameters.",
+      "lecture": 7,
+      "slide": 7,
+      "page": 4,
+      "file": "lessons/l7-type-ii-limits.md",
+      "topicId": "l7-type-ii-limits",
+      "sourceSlides": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Gaussian covariance",
+          "detail": "A covariance matrix specifies spread and relationships; its determinant appears in the normalising density."
+        },
+        {
+          "title": "Density and change of variable",
+          "detail": "A density is defined relative to a measure; changing coordinates multiplies it by a Jacobian."
+        }
+      ],
+      "teachback": "Explain the delta approximation, derive the evidence covariance, and distinguish evidence maximisation from MAP in raw scale coordinates under log-uniform priors.",
+      "next": "l7-basis-width"
+    },
+    {
+      "id": "l7-basis-width",
+      "title": "What the RBF width changes",
+      "deck": "Read the four source fits and identify the remaining modelling choices.",
+      "lecture": 7,
+      "slide": 12,
+      "page": 7,
+      "file": "lessons/l7-basis-width.md",
+      "topicId": "l7-basis-width",
+      "sourceSlides": [
+        12,
+        13
+      ],
+      "prerequisites": [
+        {
+          "title": "Basis functions",
+          "detail": "An RBF model is linear in its weights even though each basis is nonlinear in the input."
+        },
+        {
+          "title": "Design matrix",
+          "detail": "Entry Phi[n,m] is basis m evaluated at input n; changing a basis width changes this entire matrix."
+        }
+      ],
+      "teachback": "Explain what changes when r changes, how that differs from changing alpha, and why integrating alpha and sigma does not yet integrate r.",
+      "next": "l7-log-priors"
+    },
+    {
+      "id": "l7-log-priors",
+      "title": "Bounded log priors and consistent integration measures",
+      "deck": "Translate the source priors into normalised densities before integrating.",
+      "lecture": 7,
+      "slide": 14,
+      "page": 9,
+      "file": "lessons/l7-log-priors.md",
+      "topicId": "l7-log-priors",
+      "sourceSlides": [
+        14
+      ],
+      "prerequisites": [
+        {
+          "title": "Substitution in an integral",
+          "detail": "If sigma changes to v = sigma-squared, the integration element and density must both change."
+        },
+        {
+          "title": "Proper prior",
+          "detail": "A proper density integrates to one; finite positive log-scale bounds provide a normalisation constant."
+        }
+      ],
+      "teachback": "Derive the densities for alpha, sigma and sigma-squared under the stated bounded log-uniform priors, and show why integration in log coordinates removes the inverse-scale factors.",
+      "next": "l7-numerical-evidence"
+    },
+    {
+      "id": "l7-numerical-evidence",
+      "title": "Numerical evidence: grid quadrature is not iid Monte Carlo",
+      "deck": "Approximate the prior average and read the width-selection plot carefully.",
+      "lecture": 7,
+      "slide": 15,
+      "page": 9,
+      "file": "lessons/l7-numerical-evidence.md",
+      "topicId": "l7-numerical-evidence",
+      "sourceSlides": [
+        15,
+        16
+      ],
+      "prerequisites": [
+        {
+          "title": "Expectation",
+          "detail": "An integral of a function times a probability density is an expectation under that distribution."
+        },
+        {
+          "title": "Log-uniform prior",
+          "detail": "Equal-volume cells in log alpha and log sigma have equal prior mass under bounded uniform log-coordinate priors."
+        }
+      ],
+      "teachback": "Contrast a deterministic log-grid evidence average with an iid prior Monte-Carlo estimate, and explain what the two minima on the source r plot do and do not prove.",
+      "next": "l7-predictive-mixture"
+    },
+    {
+      "id": "l7-predictive-mixture",
+      "title": "Predict with posterior-weighted components",
+      "deck": "Normalise the grid mixture and account for both within-component and between-component uncertainty.",
+      "lecture": 7,
+      "slide": 17,
+      "page": 10,
+      "file": "lessons/l7-predictive-mixture.md",
+      "topicId": "l7-predictive-mixture",
+      "sourceSlides": [
+        17,
+        18
+      ],
+      "prerequisites": [
+        {
+          "title": "Conditional predictive",
+          "detail": "Integrating Gaussian weight uncertainty produces variance equal to observation noise plus projected posterior weight covariance."
+        },
+        {
+          "title": "Bayes on grid cells",
+          "detail": "Posterior cell mass is proportional to likelihood times prior cell mass, followed by normalisation."
+        }
+      ],
+      "teachback": "Derive posterior grid weights and the mixture mean and variance. Which uncertainties are retained, and why is r still a plug-in approximation?",
+      "next": "l7-width-model-averaging"
+    },
+    {
+      "id": "l7-width-model-averaging",
+      "title": "Integrate width and compare basis families",
+      "deck": "Understand the demo agenda without inventing unseen results.",
+      "lecture": 7,
+      "slide": 19,
+      "page": 11,
+      "file": "lessons/l7-width-model-averaging.md",
+      "topicId": "l7-width-model-averaging",
+      "sourceSlides": [
+        19
+      ],
+      "prerequisites": [
+        {
+          "title": "Mixture weights",
+          "detail": "Posterior probabilities, not unnormalised densities, weight predictive components."
+        },
+        {
+          "title": "Model evidence",
+          "detail": "A family evidence integrates over its unknown parameters under proper family-conditional priors."
+        }
+      ],
+      "teachback": "Explain how to integrate r rather than optimise it, then derive posterior probabilities and model-averaged predictions for two basis families with explicit priors.",
+      "next": "l7-grid-limits"
+    },
+    {
+      "id": "l7-grid-limits",
+      "title": "Why the grid approach stops scaling",
+      "deck": "Consolidate the inference ladder and the computational warning.",
+      "lecture": 7,
+      "slide": 20,
+      "page": 12,
+      "file": "lessons/l7-grid-limits.md",
+      "topicId": "l7-grid-limits",
+      "sourceSlides": [
+        20
+      ],
+      "prerequisites": [
+        {
+          "title": "Cartesian product",
+          "detail": "If each of d coordinates has K grid positions, the complete grid has K to the power d points."
+        },
+        {
+          "title": "Approximation versus target",
+          "detail": "A numerical method approximates a specified posterior integral; changing the method need not change the probabilistic model."
+        }
+      ],
+      "teachback": "Describe the inference ladder from weight MAP to hyperparameter and model averaging, then explain the grid cost and what the lecture’s success claim does not guarantee.",
+      "next": "l8-integration-roadmap"
+    },
+    {
+      "id": "l8-integration-roadmap",
+      "title": "Why Bayesian learning needs stochastic integration",
+      "deck": "Explain the three Bayesian integrals, naming the variable integrated out and the distribution being averaged over.",
+      "lecture": 8,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l8-integration-roadmap.md",
+      "topicId": "l8-expectations",
+      "sourceSlides": [
+        1,
+        2,
+        3
+      ],
+      "prerequisites": [
+        {
+          "title": "Marginalisation",
+          "detail": "Integrating a joint density removes a variable while retaining uncertainty."
+        },
+        {
+          "title": "Bayesian linear regression",
+          "detail": "Recall that the posterior and evidence are different quantities."
+        }
+      ],
+      "teachback": "Explain the three Bayesian integrals, naming the variable integrated out and the distribution being averaged over.",
+      "next": "l8-monte-carlo"
+    },
+    {
+      "id": "l8-monte-carlo",
+      "title": "Monte Carlo averages and their actual error rate",
+      "deck": "Derive the Monte Carlo variance and distinguish its dimension-independent exponent from the difficulties of obtaining samples.",
+      "lecture": 8,
+      "slide": 4,
+      "page": 3,
+      "file": "lessons/l8-monte-carlo.md",
+      "topicId": "l8-expectations",
+      "sourceSlides": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "prerequisites": [
+        {
+          "title": "Expectation and variance",
+          "detail": "An expectation is a probability-weighted integral; variance is a squared-deviation expectation."
+        },
+        {
+          "title": "Independent draws",
+          "detail": "Independence removes cross-covariance terms in the variance of an average."
+        }
+      ],
+      "teachback": "Derive the Monte Carlo variance and distinguish its dimension-independent exponent from the difficulties of obtaining samples.",
+      "next": "l8-inverse-cdf"
+    },
+    {
+      "id": "l8-inverse-cdf",
+      "title": "Inverse-CDF sampling and the Cauchy warning",
+      "deck": "Prove the inverse-CDF method, transform three uniform values into Cauchy values, and explain why Cauchy sampling does not justify estimating its mean.",
+      "lecture": 8,
+      "slide": 8,
+      "page": 5,
+      "file": "lessons/l8-inverse-cdf.md",
+      "topicId": "l8-inverse-cdf",
+      "sourceSlides": [
+        8,
+        9
+      ],
+      "prerequisites": [
+        {
+          "title": "CDF versus density",
+          "detail": "A CDF gives cumulative probability and increases from zero to one."
+        },
+        {
+          "title": "Change of variables",
+          "detail": "A transformed continuous density includes a Jacobian factor."
+        }
+      ],
+      "teachback": "Prove the inverse-CDF method, transform three uniform values into Cauchy values, and explain why Cauchy sampling does not justify estimating its mean.",
+      "next": "l8-unnormalised-targets"
+    },
+    {
+      "id": "l8-unnormalised-targets",
+      "title": "Targets known only up to a normalising constant",
+      "deck": "Identify P-star and Z for a weight posterior and for a hyperparameter posterior; explain what can still be evaluated when Z is unknown.",
+      "lecture": 8,
+      "slide": 10,
+      "page": 6,
+      "file": "lessons/l8-unnormalised-targets.md",
+      "topicId": "l8-unnormalised",
+      "sourceSlides": [
+        10,
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Bayes and evidence",
+          "detail": "Posterior equals likelihood times prior divided by evidence."
+        },
+        {
+          "title": "Hyperparameters",
+          "detail": "Alpha and noise variance govern a weight prior and observation model."
+        }
+      ],
+      "teachback": "Identify P-star and Z for a weight posterior and for a hyperparameter posterior; explain what can still be evaluated when Z is unknown.",
+      "next": "l8-dimensionality"
+    },
+    {
+      "id": "l8-dimensionality",
+      "title": "Why grids and uniform proposals fail in many dimensions",
+      "deck": "Derive the ball-to-cube volume fraction, compare a high-dimensional grid cost, and explain why this does not contradict Monte Carlo’s variance rate.",
+      "lecture": 8,
+      "slide": 12,
+      "page": 7,
+      "file": "lessons/l8-dimensionality.md",
+      "topicId": "l8-geometry",
+      "sourceSlides": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "prerequisites": [
+        {
+          "title": "Volume and probability",
+          "detail": "Uniform probability is proportional to volume within the sampling region."
+        },
+        {
+          "title": "Monte Carlo conditions",
+          "detail": "The 1/R variance formula assumes representative IID target draws."
+        }
+      ],
+      "teachback": "Derive the ball-to-cube volume fraction, compare a high-dimensional grid cost, and explain why this does not contradict Monte Carlo’s variance rate.",
+      "next": "l8-importance-weights"
+    },
+    {
+      "id": "l8-importance-weights",
+      "title": "Deriving self-normalised importance sampling",
+      "deck": "Derive the ratio estimator from expectations under Q, explain why constants cancel, and distinguish consistency from finite-sample unbiasedness.",
+      "lecture": 8,
+      "slide": 16,
+      "page": 9,
+      "file": "lessons/l8-importance-weights.md",
+      "topicId": "l8-importance",
+      "sourceSlides": [
+        16,
+        17
+      ],
+      "prerequisites": [
+        {
+          "title": "Unnormalised targets",
+          "detail": "The target p=P-star/Z is proper although Z may be unknown."
+        },
+        {
+          "title": "Support",
+          "detail": "The support is the region on which a density is positive."
+        }
+      ],
+      "teachback": "Derive the ratio estimator from expectations under Q, explain why constants cancel, and distinguish consistency from finite-sample unbiasedness.",
+      "next": "l8-importance-plots"
+    },
+    {
+      "id": "l8-importance-plots",
+      "title": "Reading the importance-sampling illustration",
+      "deck": "Identify the target, proposal and integrand curves, then explain what a running-estimate plot does and does not establish.",
+      "lecture": 8,
+      "slide": 18,
+      "page": 11,
+      "file": "lessons/l8-importance-plots.md",
+      "topicId": "l8-importance",
+      "sourceSlides": [
+        18,
+        19
+      ],
+      "prerequisites": [
+        {
+          "title": "Self-normalised estimator",
+          "detail": "Each proposal draw contributes a function value weighted by P-star/Q-star."
+        },
+        {
+          "title": "Density versus function",
+          "detail": "A function being averaged need not itself be a probability density."
+        }
+      ],
+      "teachback": "Identify the target, proposal and integrand curves, then explain what a running-estimate plot does and does not establish.",
+      "next": "l8-bad-proposals"
+    },
+    {
+      "id": "l8-bad-proposals",
+      "title": "Bad proposals, rare weights and deceptive plateaus",
+      "deck": "Explain why missing the left mode creates plateaus and jumps; distinguish absent support, tiny support probability and insufficient tail moments.",
+      "lecture": 8,
+      "slide": 20,
+      "page": 14,
+      "file": "lessons/l8-bad-proposals.md",
+      "topicId": "l8-importance-diagnostics",
+      "sourceSlides": [
+        20,
+        21
+      ],
+      "prerequisites": [
+        {
+          "title": "Importance weights",
+          "detail": "Large target/proposal ratios give a draw high influence."
+        },
+        {
+          "title": "Consistency and finite-run accuracy",
+          "detail": "A mathematical limit does not guarantee accuracy at a particular sample size."
+        }
+      ],
+      "teachback": "Explain why missing the left mode creates plateaus and jumps; distinguish absent support, tiny support probability and insufficient tail moments.",
+      "next": "l8-heavy-tailed-proposals"
+    },
+    {
+      "id": "l8-heavy-tailed-proposals",
+      "title": "What a Cauchy proposal improves—and what it cannot guarantee",
+      "deck": "Explain the benefit and cost of heavy-tailed proposals without confusing proposal moments with target moments or claiming universal convergence.",
+      "lecture": 8,
+      "slide": 22,
+      "page": 17,
+      "file": "lessons/l8-heavy-tailed-proposals.md",
+      "topicId": "l8-importance-diagnostics",
+      "sourceSlides": [
+        22,
+        23,
+        24
+      ],
+      "prerequisites": [
+        {
+          "title": "Cauchy distribution",
+          "detail": "Its tails are heavier than Gaussian tails; its own mean is undefined."
+        },
+        {
+          "title": "Weight degeneracy",
+          "detail": "Rare large ratios can dominate a self-normalised average."
+        }
+      ],
+      "teachback": "Explain the benefit and cost of heavy-tailed proposals without confusing proposal moments with target moments or claiming universal convergence.",
+      "next": "l8-gaussian-mass"
+    },
+    {
+      "id": "l8-gaussian-mass",
+      "title": "Where high-dimensional Gaussian probability mass lives",
+      "deck": "Reconstruct the source’s dimension labels with nested cubes, then separately derive the Gaussian typical radius and a ball-shell volume fraction.",
+      "lecture": 8,
+      "slide": 25,
+      "page": 20,
+      "file": "lessons/l8-gaussian-mass.md",
+      "topicId": "l8-geometry",
+      "sourceSlides": [
+        25
+      ],
+      "prerequisites": [
+        {
+          "title": "Independent Gaussian coordinates",
+          "detail": "Joint probabilities of coordinate-wise events multiply under independence."
+        },
+        {
+          "title": "Density versus probability mass",
+          "detail": "Density at a point is not the probability of a surrounding region."
+        }
+      ],
+      "teachback": "Reconstruct the source’s dimension labels with nested cubes, then separately derive the Gaussian typical radius and a ball-shell volume fraction.",
+      "next": "l8-mcmc-preview"
+    },
+    {
+      "id": "l8-mcmc-preview",
+      "title": "MCMC preview: local moves, correlated samples",
+      "deck": "Contrast global importance proposals with local MCMC proposals, and explain why a local random walk alone is not a correct posterior sampler.",
+      "lecture": 8,
+      "slide": 26,
+      "page": 26,
+      "file": "lessons/l8-mcmc-preview.md",
+      "topicId": "l8-mcmc",
+      "sourceSlides": [
+        26
+      ],
+      "prerequisites": [
+        {
+          "title": "Proposal mismatch",
+          "detail": "A globally close proposal is difficult to construct in high dimensions."
+        },
+        {
+          "title": "Monte Carlo variance",
+          "detail": "The IID derivation does not directly apply to correlated draws."
+        }
+      ],
+      "teachback": "Contrast global importance proposals with local MCMC proposals, and explain why a local random walk alone is not a correct posterior sampler."
     }
   ],
   "sourceWarnings": [
@@ -1556,6 +2555,111 @@
       "lecture": 4,
       "slide": 22,
       "text": "The claim that every department favours female applicants is not literally supported by the supplied counts: Medicine is 99/416 versus 140/578, both rounded to 24%. The lesson uses the exact rates and explains the weighted-mixture effect."
+    },
+    {
+      "lecture": 6,
+      "slide": 3,
+      "text": "MAP is Bayesian-derived, but a point estimate alone does not propagate posterior uncertainty; interpret the source’s slogan accordingly."
+    },
+    {
+      "lecture": 6,
+      "slide": 9,
+      "text": "The analytic-roadblock claim depends on model and hyperprior choices; special conjugate cases can admit more exact integration."
+    },
+    {
+      "lecture": 6,
+      "slide": 11,
+      "text": "Flat log-priors imply scale-coordinate Jacobian factors. Evidence maximisation is a log-coordinate posterior mode, not generally the mode of p(alpha, sigma² | y) in positive-scale coordinates. Improper priors need care for normalised evidence."
+    },
+    {
+      "lecture": 6,
+      "slide": 17,
+      "text": "The Occam effect has no extra preferred log-alpha hyperprior here, but still depends on the weight prior. The source’s “not due to the prior” should not be read as prior independence."
+    },
+    {
+      "lecture": 6,
+      "slide": 21,
+      "text": "The PLS degeneracy warning concerns naive training-criterion tuning, not impossibility of all non-Bayesian joint hyperparameter estimation."
+    },
+    {
+      "lecture": 6,
+      "slide": 24,
+      "text": "The marked 0.212 and true value 0.250 are standard deviations, despite the vertical axis showing log variance. Slides 22–24 consistently label the horizontal axis log lambda."
+    },
+    {
+      "lecture": 6,
+      "slide": 25,
+      "text": "The small PDF variance annotation has missing/clipped glyphs; transcription explicitly restores sigma_*² = sigma_hat² + phi_*^T Sigma phi_* from the Gaussian model and labelled contributions."
+    },
+    {
+      "lecture": 7,
+      "slide": 8,
+      "text": "Flat priors in log coordinates are inverse-scale densities in raw coordinates. Evidence maximisation is not generally raw-coordinate MAP under those priors; density modes depend on coordinates."
+    },
+    {
+      "lecture": 7,
+      "slide": 15,
+      "text": "The source switches between sigma and sigma-squared measures and calls a deterministic regular log grid Monte Carlo. Transform densities and bounds consistently; distinguish quadrature from iid random sampling."
+    },
+    {
+      "lecture": 7,
+      "slide": 17,
+      "text": "The printed predictive sum suppresses training-data conditioning and omits normalisation. Use posterior cell masses proportional to likelihood times prior cell mass; equal prior-grid weights do not imply equal predictive weights. Width remains a plug-in estimate here."
+    },
+    {
+      "lecture": 7,
+      "slide": 19,
+      "text": "The source prints three integral signs beside four differentials and gives a demo agenda rather than its outputs. No unseen demo results or winning basis family are reconstructed; family comparison requires proper priors and explicit model prior probabilities."
+    },
+    {
+      "lecture": 8,
+      "slide": 6,
+      "text": "The source error integral is written over one target draw although the estimator depends on an entire sample. The 1/R result is variance for IID finite-variance draws; standard error is 1/sqrt(R). Dimension can affect the variance constant and sampling cost."
+    },
+    {
+      "lecture": 8,
+      "slide": 7,
+      "text": "The continuation on PDF page 5 has blank problem-number references. Their connection to the preceding numbered list is inferred, not restored source text."
+    },
+    {
+      "lecture": 8,
+      "slide": 8,
+      "text": "The CDF formula mixes theta and x as arguments, calls the CDF a cumulative density function, and reuses theta for the transformed output. Consistent notation and inverse-CDF endpoint limitations are explained alongside the transcription."
+    },
+    {
+      "lecture": 8,
+      "slide": 11,
+      "text": "The absence of a closed-form hyperparameter posterior is the lecture example’s setting, not a universal theorem for all hyperpriors."
+    },
+    {
+      "lecture": 8,
+      "slide": 12,
+      "text": "The source calls a regular-grid calculation Monte Carlo and refers to 1/R error. Grid quadrature is not IID Monte Carlo; 1/R concerns estimator variance."
+    },
+    {
+      "lecture": 8,
+      "slide": 18,
+      "text": "The plotted target, integrand and proposal parameters are not supplied. Figures are preserved, but no exact curve definitions or simulated demo outputs are invented."
+    },
+    {
+      "lecture": 8,
+      "slide": 21,
+      "text": "Non-converging Estimate is the source title. A finite plotted trace does not prove asymptotic inconsistency; the source lacks formulas needed to establish its tail moments."
+    },
+    {
+      "lecture": 8,
+      "slide": 24,
+      "text": "The source switches target notation to P. Its high-dimensional impracticality conclusion is a generic warning about proposal mismatch, not a theorem ruling out all specialised importance methods."
+    },
+    {
+      "lecture": 8,
+      "slide": 25,
+      "text": "The dimension-labelled figures span PDF pages 20–26. Their higher-dimensional regions are not explicitly defined; rounded percentages match nested Gaussian hypercubes at coordinate cutoffs 1.5 and 2.5, not fixed-radius spheres. The reconstruction and separate radial/shell derivations are labelled tutor support."
+    },
+    {
+      "lecture": 8,
+      "slide": 26,
+      "text": "MCMC is a preview only. Local proposals alone are not a complete algorithm, and correlated chain draws need stationarity/ergodicity and suitable mixing conditions rather than the earlier IID assumption."
     }
   ]
 }

@@ -14,7 +14,7 @@ export function readState(storage) {
     if (!parsed || parsed.version !== 1 || !parsed.notes || typeof parsed.notes !== 'object' || Array.isArray(parsed.notes) || !parsed.progress || typeof parsed.progress !== 'object' || Array.isArray(parsed.progress)) throw new Error('Invalid saved state');
     const state = emptyState();
     for (const [key, note] of Object.entries(parsed.notes)) {
-      if (/^(lesson:[a-z0-9-]+|lecture:[1-5]|roadmap)$/.test(key) && note && typeof note === 'object') state.notes[key] = { notes: typeof note.notes === 'string' ? note.notes : '', answer: typeof note.answer === 'string' ? note.answer : '', updatedAt: typeof note.updatedAt === 'string' ? note.updatedAt : '' };
+      if (/^(lesson:[a-z0-9-]+|lecture:[1-8]|roadmap)$/.test(key) && note && typeof note === 'object') state.notes[key] = { notes: typeof note.notes === 'string' ? note.notes : '', answer: typeof note.answer === 'string' ? note.answer : '', updatedAt: typeof note.updatedAt === 'string' ? note.updatedAt : '' };
     }
     for (const [key, status] of Object.entries(parsed.progress)) if (/^[a-z0-9-]+$/.test(key) && !['constructor', '__proto__', 'prototype'].includes(key) && PROGRESS_STATES.includes(status)) state.progress[key] = status;
     state.lastRoute = typeof parsed.lastRoute === 'string' ? parsed.lastRoute : '';
