@@ -1,0 +1,20 @@
+{
+  "name": "bayes-study-companion",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node study/server.mjs",
+    "test": "node --test study/test/*.test.mjs",
+    "check": "node --check study/server.mjs && node --check study/content.mjs && node --check study/app.mjs && node --check study/render.mjs && node --check study/state.mjs",
+    "test:browser": "node study/test/browser-smoke.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "dompurify": "3.4.17",
+    "katex": "0.19.0",
+    "marked": "18.1.1"
+  }
+}
