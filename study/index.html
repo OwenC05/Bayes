@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <title>Bayes · Study notebook</title>
+  <link rel="stylesheet" href="/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to lesson</a>
+  <aside id="sidebar" class="sidebar" aria-label="Course navigation">
+    <a class="wordmark" href="/" aria-label="Bayes study notebook home">bayes<span class="wordmark-dot">.</span></a>
+    <p class="notebook-label">A study notebook</p>
+    <div class="sidebar-heading">THE COURSE <span>01—05</span></div>
+    <nav id="course-nav" aria-label="Lectures"><p class="loading">Loading lectures…</p></nav>
+    <section class="course-summary" aria-label="Learning progress">
+      <h2>Your learning, honestly tracked</h2>
+      <div id="course-summary"><p class="loading">Loading roadmap…</p></div>
+      <p class="quiet">Introduced is not mastered. Progress is yours to assess.</p>
+    </section>
+    <div class="local-note"><span class="local-dot" aria-hidden="true"></span><div><strong>Local study companion</strong><p>Notes stay in this browser. Not an AI chat; continue learning with your tutor.</p></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <button id="nav-toggle" class="icon-button nav-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open course navigation"><span aria-hidden="true">☰</span><span>Lectures</span></button>
+      <div id="breadcrumb" class="breadcrumb">Bayesian machine learning / Study notebook</div>
+      <div class="topbar-actions"><span id="connection-status" class="connection-status" role="status">Loading local content…</span><button id="export-notes" class="text-button" type="button">Export notes <span aria-hidden="true">↗</span></button></div>
+    </header>
+    <div id="app-error" class="app-error" role="alert" hidden><div><strong>We couldn’t load the notebook.</strong><p>Check that the local server is running, then try again.</p></div><button id="retry-load" type="button">Try again</button></div>
+    <div class="study-layout">
+      <main id="main-content" tabindex="-1">
+        <div class="page-heading"><p id="eyebrow" class="eyebrow">YOUR STUDY NOTEBOOK</p><h1 id="page-title">A little clarity,<br>one idea at a time.</h1><p id="page-description" class="page-description">Loading your lesson and lecture sources…</p></div>
+        <div class="view-tabs" role="tablist" aria-label="Study view">
+          <button id="tab-lesson" type="button" role="tab" data-view="lesson" aria-controls="lesson-view" aria-selected="true">Lesson</button>
+          <button id="tab-notes" type="button" role="tab" data-view="notes" aria-controls="notes-view" aria-selected="false" tabindex="-1">Lecture notes</button>
+          <button id="tab-roadmap" type="button" role="tab" data-view="roadmap" aria-controls="roadmap-view" aria-selected="false" tabindex="-1">Roadmap</button>
+        </div>
+        <section id="lesson-view" role="tabpanel" aria-labelledby="tab-lesson">
+          <div class="lesson-picker">
+            <label for="lesson-select">Choose a lesson</label>
+            <select id="lesson-select" disabled><option>Loading lesson library…</option></select>
+            <p id="lesson-position" class="field-hint">Lessons are grouped by lecture. Opening one does not mark it learned.</p>
+          </div>
+          <div id="lesson-meta" class="lesson-meta"></div>
+          <div id="prerequisites" class="prerequisites"></div>
+          <article id="lesson-body" class="prose"><p class="loading">Preparing the next idea…</p></article>
+          <section class="assessment-panel" aria-labelledby="assessment-label"><div><h2 id="assessment-label">Could you explain this to someone?</h2><p>Your assessment—not an automatic grade.</p></div><div class="assessment-field"><label for="assessment-select">My understanding</label><select id="assessment-select" disabled><option value="not-started">Not started</option><option value="introduced">Introduced</option><option value="needs-review">Needs review</option><option value="can-explain">Can explain</option></select></div></section>
+          <nav class="lesson-pagination" aria-label="Lesson navigation"><button id="previous-lesson" type="button" disabled>← Previous idea</button><button id="next-lesson" class="primary-button" type="button" disabled>Next idea →</button></nav>
+        </section>
+        <section id="notes-view" role="tabpanel" aria-labelledby="tab-notes" hidden><details id="slide-toc" class="slide-toc" open><summary>In this lecture</summary><nav id="slide-list" aria-label="Lecture slides"></nav></details><article id="lecture-body" class="prose"><p class="loading">Loading lecture notes…</p></article></section>
+        <section id="roadmap-view" role="tabpanel" aria-labelledby="tab-roadmap" hidden><div class="view-intro"><h2>The bigger picture</h2><p>Build the foundations, connect the ideas, then explain them in your own words.</p></div><div id="roadmap-body"><p class="loading">Loading learning roadmap…</p></div></section>
+      </main>
+      <aside class="study-rail" aria-label="Source and personal study notes">
+        <section class="rail-section source-section"><div class="rail-heading"><h2>From the lecture</h2><span class="rail-kicker">SOURCE</span></div><p id="source-caption" class="source-caption">Original material, beside the explanation.</p>
+          <nav class="source-pagination" aria-label="Original source pages">
+            <button id="source-previous" type="button" disabled>← Previous page</button>
+            <span id="source-page-status" role="status">Loading pages…</span>
+            <button id="source-next" type="button" disabled>Next page →</button>
+          </nav>
+          <button id="zoom-source" class="source-preview" type="button" aria-label="Enlarge original lecture slide" hidden><img id="source-image" alt="" loading="lazy"><span class="image-hint">View original slide <span aria-hidden="true">↗</span></span></button><p id="source-empty" class="source-empty">Loading the original source…</p><a id="source-link" class="source-link" href="#" hidden>Open lecture source ↗</a></section>
+        <section class="rail-section teachback-section"><div class="rail-heading"><h2>Make it your own</h2><span class="rail-kicker">TEACH-BACK</span></div><p id="teachback-prompt">Loading the question for this lesson…</p><label for="teachback-answer">Explain it to a beginner</label><textarea id="teachback-answer" rows="6" placeholder="Use your own words. What is the idea, and why does it work?"></textarea><p class="field-hint">A place to think, not an automatically graded answer.</p></section>
+        <section class="rail-section personal-section"><div class="rail-heading"><h2>Margin notes</h2></div><label for="personal-notes">Questions, connections & reminders</label><textarea id="personal-notes" rows="5" placeholder="What clicked? What still needs another look?"></textarea></section>
+        <p id="save-status" class="save-status" aria-live="polite">Personal writing is saved locally in this browser.</p>
+      </aside>
+    </div>
+    <footer class="workspace-footer"><span>Bayesian machine learning · Lectures 1–5</span><span>Understand it. Explain it. Make it yours.</span></footer>
+  </div>
+  <dialog id="image-dialog" aria-labelledby="dialog-caption"><div class="dialog-toolbar"><p id="dialog-caption">Original lecture slide</p><button id="close-image" type="button" aria-label="Close original slide">Close ×</button></div><img id="dialog-image" alt="Original lecture slide"></dialog>
+</body>
+</html>

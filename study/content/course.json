@@ -1,0 +1,1561 @@
+{
+  "title": "Bayesian Machine Learning · Study companion",
+  "currentLesson": "l3-bayesian-workflow",
+  "lectures": [
+    {
+      "id": 1,
+      "shortTitle": "Why Bayes?",
+      "title": "Bayesian Machine Learning — An Introduction to the Unit",
+      "description": "Return after the probability toolkit to connect formal rules to the historical and philosophical motivation.",
+      "topics": [
+        {
+          "id": "course-context",
+          "title": "Course structure, assessment, materials and reading",
+          "status": "not-started",
+          "slides": "1–5, 19–23",
+          "prerequisites": [
+            "Review administrative material once; dates are historical"
+          ]
+        },
+        {
+          "id": "bayesian-motivation",
+          "title": "Uncertainty, Bayesian benefits and computational difficulties",
+          "status": "not-started",
+          "slides": "6",
+          "prerequisites": [
+            "Model, parameter and observation"
+          ]
+        },
+        {
+          "id": "forward-inverse",
+          "title": "Forward versus inverse probability; bowl-of-balls examples",
+          "status": "introduced",
+          "slides": "8–11",
+          "prerequisites": []
+        },
+        {
+          "id": "history",
+          "title": "Bernoulli, Bayes and Price, Laplace: contributions and significance",
+          "status": "not-started",
+          "slides": "7–14",
+          "prerequisites": []
+        },
+        {
+          "id": "probability-interpretations",
+          "title": "Long-run frequency versus plausibility; Cox’s consistency argument (conceptual, not a full theorem proof)",
+          "status": "not-started",
+          "slides": "15–17",
+          "prerequisites": []
+        },
+        {
+          "id": "bayesian-framework",
+          "title": "Sum/product rules, Bayes, prior, likelihood, posterior and evidence",
+          "status": "introduced",
+          "slides": "17–18",
+          "prerequisites": []
+        },
+        {
+          "id": "later-course-preview",
+          "title": "Later-course destinations are previews, not prerequisites",
+          "status": "not-started",
+          "slides": "22–23",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "shortTitle": "Probability toolkit",
+      "title": "Probabilistic Thinking — A Primer",
+      "description": "Reference toolkit: probability rules, common distributions and graphical models. Introduced does not mean mastered; revisit unfinished checks as needed.",
+      "topics": [
+        {
+          "id": "uncertainty-motivation",
+          "title": "Challenger/Feynman motivation and limits of mathematical models",
+          "status": "not-started",
+          "slides": "1–6",
+          "prerequisites": []
+        },
+        {
+          "id": "probability-foundations",
+          "title": "Outcomes, events, complements, union/intersection, conditional probability",
+          "status": "introduced",
+          "slides": "7–12",
+          "prerequisites": [
+            "Sets, fractions and normalisation"
+          ]
+        },
+        {
+          "id": "mass-density",
+          "title": "Discrete mass versus continuous density; support and normalisation",
+          "status": "introduced",
+          "slides": "7–8",
+          "prerequisites": [
+            "Sums and integrals"
+          ]
+        },
+        {
+          "id": "joint-marginal-conditional",
+          "title": "Joint distributions, marginalisation and conditioning",
+          "status": "introduced",
+          "slides": "9–16",
+          "prerequisites": []
+        },
+        {
+          "id": "independence",
+          "title": "Independence versus exclusivity; conditional independence with unknown parameters",
+          "status": "introduced",
+          "slides": "13, 17–18",
+          "prerequisites": []
+        },
+        {
+          "id": "likelihood-mle",
+          "title": "Datasets, i.i.d., probability versus likelihood, MLE and log-likelihood",
+          "status": "introduced",
+          "slides": "18–20",
+          "prerequisites": [
+            "Products, logarithms, argmax; differentiation bridge when deriving estimators"
+          ]
+        },
+        {
+          "id": "gaussian",
+          "title": "Expectation, variance, standard deviation; univariate Gaussian formula and code",
+          "status": "introduced",
+          "slides": "21",
+          "prerequisites": [
+            "Exponentials; weighted averages"
+          ]
+        },
+        {
+          "id": "gaussian-contours",
+          "title": "Multivariate Gaussian, covariance, matrices and contours; circle check pending",
+          "status": "introduced",
+          "slides": "10, 22",
+          "prerequisites": [
+            "Vectors, transpose, matrix products, inverse, determinant and positive definiteness"
+          ]
+        },
+        {
+          "id": "gamma",
+          "title": "Gamma function bridge; Gamma shape/rate, density and scale convention",
+          "status": "introduced",
+          "slides": "23",
+          "prerequisites": [
+            "Factorials, integrals and density versus probability"
+          ]
+        },
+        {
+          "id": "categorical",
+          "title": "Bernoulli recap and categorical distributions",
+          "status": "introduced",
+          "slides": "24",
+          "prerequisites": [
+            "Binary observations versus probability parameters"
+          ]
+        },
+        {
+          "id": "beta",
+          "title": "Beta distributions over probability parameters; conjugacy preview",
+          "status": "introduced",
+          "slides": "25–26",
+          "prerequisites": [
+            "Gamma function; density on an interval"
+          ]
+        },
+        {
+          "id": "distribution-code",
+          "title": "Read NumPy grids, SciPy .pdf, loc/scale and Matplotlib contours",
+          "status": "not-started",
+          "slides": "21–25",
+          "prerequisites": [
+            "Python calls and keyword arguments; no labsheet execution"
+          ]
+        },
+        {
+          "id": "graphical-models",
+          "title": "Observed/latent nodes, arrows, joint factorisation and dependence preview",
+          "status": "introduced",
+          "slides": "27–28",
+          "prerequisites": [
+            "Product rule and conditional independence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "shortTitle": "Bayesian inference",
+      "title": "Bayesian Statistical Inference — Introductory Examples",
+      "description": "Derive the full update and predictive workflow, then explain every curve in the Gaussian and Bernoulli examples.",
+      "topics": [
+        {
+          "id": "inference-recap",
+          "title": "Probability recap and point-estimate inference/prediction",
+          "status": "introduced",
+          "slides": "2–5",
+          "prerequisites": [
+            "Lecture 2 toolkit"
+          ]
+        },
+        {
+          "id": "inference-workflow",
+          "title": "Parameter/model priors, posterior, evidence and posterior predictive integration",
+          "status": "current",
+          "slides": "6–7",
+          "prerequisites": [
+            "Bayes; marginalisation; likelihood is not posterior"
+          ]
+        },
+        {
+          "id": "prior-conjugacy",
+          "title": "Choosing priors; constraints, sparsity, indifference, convenience, hyperparameters and conjugacy",
+          "status": "not-started",
+          "slides": "9–10",
+          "prerequisites": [
+            "Gaussian and Beta distributions"
+          ]
+        },
+        {
+          "id": "gaussian-mean-likelihood",
+          "title": "Known observation variance, unknown mean; likelihood and sample-mean MLE",
+          "status": "not-started",
+          "slides": "8",
+          "prerequisites": [
+            "Differentiation and stationary-point bridge"
+          ]
+        },
+        {
+          "id": "gaussian-mean-posterior",
+          "title": "Gaussian prior/posterior; weighted mean, additive precisions, limits and plots",
+          "status": "not-started",
+          "slides": "10–12",
+          "prerequisites": [
+            "Completing the square bridge; observation variance versus parameter uncertainty"
+          ]
+        },
+        {
+          "id": "gaussian-predictive",
+          "title": "Predictive integration; observation noise plus posterior mean uncertainty",
+          "status": "not-started",
+          "slides": "13",
+          "prerequisites": [
+            "Integration; Gaussian posterior"
+          ]
+        },
+        {
+          "id": "bernoulli-likelihood",
+          "title": "Bernoulli likelihood, success/failure counts and MLE",
+          "status": "not-started",
+          "slides": "14",
+          "prerequisites": [
+            "Powers and products; derivative bridge including boundary cases"
+          ]
+        },
+        {
+          "id": "beta-bernoulli",
+          "title": "Beta mean/variance, conjugate update, pseudo-count interpretation and limiting behaviour",
+          "status": "not-started",
+          "slides": "15–18",
+          "prerequisites": [
+            "Beta parameters; prior mean versus prior strength"
+          ]
+        },
+        {
+          "id": "bernoulli-illustrations",
+          "title": "Uniform, symmetric, biased and strong priors; misleading priors and all plotted updates",
+          "status": "not-started",
+          "slides": "19–22",
+          "prerequisites": []
+        },
+        {
+          "id": "lab-recognition",
+          "title": "Bandit lab preview: priors, posteriors, sampling and Gamma/Bernoulli models; no lab execution",
+          "status": "not-started",
+          "slides": "23",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "shortTitle": "Inference & decisions",
+      "title": "Adventures in Inference — Why We Need Probability",
+      "description": "Separate probabilities from actions and identify failures involving dependence, selection and confounding.",
+      "topics": [
+        {
+          "id": "decisions",
+          "title": "Probabilistic outputs; inference versus decision and quality versus realised outcome",
+          "status": "not-started",
+          "slides": "2–6",
+          "prerequisites": [
+            "Posterior predictive reasoning"
+          ]
+        },
+        {
+          "id": "prevalence",
+          "title": "Recalibrate classification probabilities when class prevalence changes",
+          "status": "not-started",
+          "slides": "7–8",
+          "prerequisites": [
+            "Bayes and class probabilities; explicit unchanged class-conditional model assumption"
+          ]
+        },
+        {
+          "id": "asymmetric-costs",
+          "title": "Cost matrices, expected losses, asymmetric decisions and demo",
+          "status": "not-started",
+          "slides": "9–10",
+          "prerequisites": [
+            "Expectation and weighted averages"
+          ]
+        },
+        {
+          "id": "false-independence",
+          "title": "Sally Clark example, false independence and fictional dependence experiment",
+          "status": "not-started",
+          "slides": "11–14",
+          "prerequisites": [
+            "Joint versus conditional probability; likelihood versus hypothesis probability"
+          ]
+        },
+        {
+          "id": "selection-pvalues",
+          "title": "Lucia de Berk example; selection effects, reference groups and p-value interpretation",
+          "status": "not-started",
+          "slides": "15–17",
+          "prerequisites": [
+            "Tail-event probabilities; sampling/selection mechanism"
+          ]
+        },
+        {
+          "id": "causation",
+          "title": "Correlation versus causation; fictional example and common-cause graph",
+          "status": "not-started",
+          "slides": "18–20",
+          "prerequisites": [
+            "Graphical models; distinguish observation from intervention"
+          ]
+        },
+        {
+          "id": "simpson",
+          "title": "Simpson’s paradox: aggregate versus departmental rates and confounding",
+          "status": "not-started",
+          "slides": "21–23",
+          "prerequisites": [
+            "Conditional probabilities and weighted averages"
+          ]
+        },
+        {
+          "id": "historical-applications",
+          "title": "Dated applications and next-week signposting, not current guidance",
+          "status": "not-started",
+          "slides": "24–25",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "shortTitle": "Bayesian regression",
+      "title": "Bayesian Linear Regression — A First Really Useful Bayesian Model",
+      "description": "Move from least squares to a distribution over weights. Later predictive and hyperparameter methods remain previews.",
+      "topics": [
+        {
+          "id": "linear-models",
+          "title": "Linear-in-weights regression, bias, polynomial/bespoke/Gaussian RBF basis functions and fixed centres/width",
+          "status": "not-started",
+          "slides": "2–5",
+          "prerequisites": [
+            "Functions, vectors and nonlinear input transformations"
+          ]
+        },
+        {
+          "id": "least-squares",
+          "title": "Squared-error fitting, design matrix and normal equations",
+          "status": "not-started",
+          "slides": "6–7",
+          "prerequisites": [
+            "Euclidean norms, gradients and matrix dimensions bridge; rank/invertibility conditions"
+          ]
+        },
+        {
+          "id": "overfitting",
+          "title": "Interpolation, basis complexity, overfitting illustrations and no-free-lunch caution",
+          "status": "not-started",
+          "slides": "5–7",
+          "prerequisites": [
+            "Training error versus generalisation"
+          ]
+        },
+        {
+          "id": "regularisation",
+          "title": "Weight penalties, regularised solution and effects of lambda",
+          "status": "not-started",
+          "slides": "8–9",
+          "prerequisites": [
+            "Penalised optimisation; identity matrix"
+          ]
+        },
+        {
+          "id": "validation",
+          "title": "Training/validation errors and choosing lambda across broad ranges",
+          "status": "not-started",
+          "slides": "10–11",
+          "prerequisites": [
+            "Held-out evaluation; do not use test data for tuning"
+          ]
+        },
+        {
+          "id": "regression-likelihood",
+          "title": "Gaussian observation noise; dataset likelihood and equivalence of MLE to least squares",
+          "status": "not-started",
+          "slides": "12–13",
+          "prerequisites": [
+            "Conditional independence at fixed inputs/weights; log-likelihood"
+          ]
+        },
+        {
+          "id": "weight-prior",
+          "title": "Independent zero-mean Gaussian weight prior and precision hyperparameter alpha",
+          "status": "not-started",
+          "slides": "14",
+          "prerequisites": [
+            "Multivariate Gaussian and prior versus hyperparameter"
+          ]
+        },
+        {
+          "id": "weight-posterior",
+          "title": "Gaussian posterior mean/covariance and connection to regularised fitting",
+          "status": "not-started",
+          "slides": "15",
+          "prerequisites": [
+            "Completing the square; matrix inverse; parameter uncertainty"
+          ]
+        },
+        {
+          "id": "map",
+          "title": "MAP as a point estimate, negative log posterior and quadratic regularisation",
+          "status": "not-started",
+          "slides": "16",
+          "prerequisites": [
+            "Mode versus mean; prior contribution; lambda scaling convention"
+          ]
+        },
+        {
+          "id": "sequential-learning",
+          "title": "Prior, likelihood and posterior in weight/function space as observations arrive",
+          "status": "not-started",
+          "slides": "17–22",
+          "prerequisites": [
+            "Posterior becomes next prior under the same model"
+          ]
+        },
+        {
+          "id": "regression-previews",
+          "title": "Why uncertainty matters; predictive and evidence-based hyperparameter fitting signposted only",
+          "status": "not-started",
+          "slides": "23",
+          "prerequisites": []
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "gaussian-contours",
+      "title": "Reading Gaussian contours",
+      "deck": "Review the geometry; the equal-variance/circle teach-back is still pending.",
+      "lecture": 2,
+      "slide": 22,
+      "page": 10,
+      "file": "lessons/gaussian-contours.md",
+      "topicId": "gaussian-contours",
+      "prerequisites": [
+        {
+          "title": "Covariance matrix",
+          "detail": "Diagonal entries are variances; off-diagonal entries are covariances."
+        },
+        {
+          "title": "Density",
+          "detail": "A contour joins equal densities, not equal point probabilities."
+        }
+      ],
+      "teachback": "Why do equal variances not guarantee circular Gaussian contours?",
+      "sourceSlides": [
+        22
+      ],
+      "next": "gamma"
+    },
+    {
+      "id": "gamma",
+      "title": "The Gamma function and Gamma distribution",
+      "deck": "A positive-valued density, with a short factorial bridge and careful rate/scale notation.",
+      "lecture": 2,
+      "slide": 23,
+      "page": 10,
+      "file": "lessons/gamma.md",
+      "topicId": "gamma",
+      "prerequisites": [
+        {
+          "title": "Factorials",
+          "detail": "n! multiplies integers from 1 through n; 0! = 1."
+        },
+        {
+          "title": "Integration",
+          "detail": "A continuous density has total area 1; probabilities are interval areas."
+        },
+        {
+          "title": "Exponentials",
+          "detail": "exp(z) means e raised to z; negative exponents give decay."
+        }
+      ],
+      "teachback": "Explain the difference between the Gamma function and a Gamma distribution. If the rate doubles at fixed shape, what happens to the mean?",
+      "sourceSlides": [
+        23
+      ],
+      "next": "categorical"
+    },
+    {
+      "id": "categorical",
+      "title": "From Bernoulli to categorical",
+      "deck": "Several possible categories, one realised outcome.",
+      "lecture": 2,
+      "slide": 24,
+      "page": 11,
+      "file": "lessons/categorical.md",
+      "topicId": "categorical",
+      "prerequisites": [
+        {
+          "title": "Bernoulli",
+          "detail": "A binary outcome is 0 or 1; theta is its success probability."
+        },
+        {
+          "title": "Normalisation",
+          "detail": "Probabilities of mutually exclusive, exhaustive outcomes sum to 1."
+        }
+      ],
+      "teachback": "For three categories with probabilities 0.2, 0.3 and 0.5, what is observed on one trial, and what are the parameters?",
+      "sourceSlides": [
+        24
+      ],
+      "next": "beta"
+    },
+    {
+      "id": "beta",
+      "title": "The Beta distribution",
+      "deck": "A continuous distribution over a probability parameter—not a binary outcome.",
+      "lecture": 2,
+      "slide": 25,
+      "page": 11,
+      "file": "lessons/beta.md",
+      "topicId": "beta",
+      "prerequisites": [
+        {
+          "title": "Density versus mass",
+          "detail": "Density height is not a point probability."
+        },
+        {
+          "title": "Gamma function",
+          "detail": "Gamma factors provide a normalising constant."
+        },
+        {
+          "title": "Parameter versus observation",
+          "detail": "A Bernoulli observation is binary; its parameter may be anywhere from 0 to 1."
+        }
+      ],
+      "teachback": "How can theta have a continuous Beta distribution while a Bernoulli observation remains only 0 or 1?",
+      "sourceSlides": [
+        25
+      ],
+      "next": "l3-probability-recap"
+    },
+    {
+      "id": "l3-probability-recap",
+      "title": "Probability rules behind Bayesian learning",
+      "deck": "Identify the unknowns, then distinguish joint, conditional and marginal distributions.",
+      "lecture": 3,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l3-probability-recap.md",
+      "topicId": "inference-recap",
+      "sourceSlides": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "prerequisites": [
+        {
+          "title": "Random variable versus observation",
+          "detail": "A variable describes possible values; an observation is the value actually recorded."
+        },
+        {
+          "title": "Density versus probability",
+          "detail": "For continuous variables, interval areas are probabilities; density at a point is not a point probability."
+        }
+      ],
+      "teachback": "Explain joint, conditional and marginal distributions, then derive Bayes’ rule from the product rule.",
+      "next": "l3-point-estimates"
+    },
+    {
+      "id": "l3-point-estimates",
+      "title": "Maximum likelihood and plug-in prediction",
+      "deck": "A single best-fitting parameter is useful, but it is not a description of parameter uncertainty.",
+      "lecture": 3,
+      "slide": 5,
+      "page": 3,
+      "file": "lessons/l3-point-estimates.md",
+      "topicId": "inference-recap",
+      "sourceSlides": [
+        5
+      ],
+      "prerequisites": [
+        {
+          "title": "Likelihood",
+          "detail": "Keep the recorded data fixed and vary candidate parameter values."
+        },
+        {
+          "title": "Logarithms and argmax",
+          "detail": "Log preserves the location of a positive likelihood’s maximum; argmax returns the parameter, not its likelihood value."
+        }
+      ],
+      "teachback": "Why can 3 heads out of 5 and 300 heads out of 500 have the same MLE but very different parameter uncertainty?",
+      "next": "l3-bayesian-workflow"
+    },
+    {
+      "id": "l3-bayesian-workflow",
+      "title": "Specify, update, integrate and predict",
+      "deck": "Unpack slide 6 and derive the evidence calculation from probability rules.",
+      "lecture": 3,
+      "slide": 6,
+      "page": 4,
+      "file": "lessons/l3-bayesian-workflow.md",
+      "topicId": "inference-workflow",
+      "sourceSlides": [
+        6,
+        7
+      ],
+      "prerequisites": [
+        {
+          "title": "Marginalisation",
+          "detail": "Integrate an unwanted continuous variable out of a joint density."
+        },
+        {
+          "title": "Prior and likelihood",
+          "detail": "The prior describes parameters before these data; the likelihood describes data given parameters."
+        }
+      ],
+      "teachback": "Why is the evidence a prior-weighted average, while prediction after observing data is a posterior-weighted average?",
+      "next": "l3-gaussian-likelihood"
+    },
+    {
+      "id": "l3-gaussian-likelihood",
+      "title": "Learning a Gaussian mean: likelihood and MLE",
+      "deck": "Keep observation variance known while estimating the shared mean.",
+      "lecture": 3,
+      "slide": 8,
+      "page": 5,
+      "file": "lessons/l3-gaussian-likelihood.md",
+      "topicId": "gaussian-mean-likelihood",
+      "sourceSlides": [
+        8
+      ],
+      "prerequisites": [
+        {
+          "title": "Gaussian parameters",
+          "detail": "The mean sets the centre; the variance describes spread of observations around that centre."
+        },
+        {
+          "title": "Differentiation",
+          "detail": "An interior maximum has zero derivative; the second derivative checks curvature."
+        }
+      ],
+      "teachback": "Derive the Gaussian mean MLE and distinguish known observation variance from uncertainty about the unknown mean.",
+      "next": "l3-choosing-priors"
+    },
+    {
+      "id": "l3-choosing-priors",
+      "title": "Choosing a prior and understanding conjugacy",
+      "deck": "Separate scientific beliefs, structural preferences and computational convenience.",
+      "lecture": 3,
+      "slide": 9,
+      "page": 6,
+      "file": "lessons/l3-choosing-priors.md",
+      "topicId": "prior-conjugacy",
+      "sourceSlides": [
+        9,
+        10
+      ],
+      "prerequisites": [
+        {
+          "title": "Support",
+          "detail": "A distribution’s support describes which values are allowed by the model."
+        },
+        {
+          "title": "Gaussian density",
+          "detail": "A Gaussian is a distribution over a real-valued variable; that variable can itself be an unknown parameter."
+        }
+      ],
+      "teachback": "What are hyperparameters, and why does conjugacy depend on both the likelihood and the parameter being inferred?",
+      "next": "l3-gaussian-posterior"
+    },
+    {
+      "id": "l3-gaussian-posterior",
+      "title": "Deriving the Gaussian posterior by completing the square",
+      "deck": "Likelihood information and prior information combine through additive precisions.",
+      "lecture": 3,
+      "slide": 11,
+      "page": 7,
+      "file": "lessons/l3-gaussian-posterior.md",
+      "topicId": "gaussian-mean-posterior",
+      "sourceSlides": [
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Completing the square",
+          "detail": "A quadratic Aμ²−2Bμ can be written A(μ−B/A)²−B²/A."
+        },
+        {
+          "title": "Precision",
+          "detail": "Precision is inverse variance: greater precision means less uncertainty."
+        }
+      ],
+      "teachback": "Derive the Gaussian posterior’s additive precision and explain why its mean is a precision-weighted compromise.",
+      "next": "l3-gaussian-curves"
+    },
+    {
+      "id": "l3-gaussian-curves",
+      "title": "Reading the Gaussian mean update plot",
+      "deck": "Explain the centre, width and height of every curve on slide 12.",
+      "lecture": 3,
+      "slide": 12,
+      "page": 8,
+      "file": "lessons/l3-gaussian-curves.md",
+      "topicId": "gaussian-mean-posterior",
+      "sourceSlides": [
+        12
+      ],
+      "prerequisites": [
+        {
+          "title": "Posterior mean and variance",
+          "detail": "The mean is the centre of parameter uncertainty; the variance quantifies its spread."
+        },
+        {
+          "title": "Density normalisation",
+          "detail": "A narrowing density becomes taller while retaining total area one."
+        }
+      ],
+      "teachback": "Why does the plotted posterior become narrow near 2 while the observations can still vary substantially?",
+      "next": "l3-gaussian-prediction"
+    },
+    {
+      "id": "l3-gaussian-prediction",
+      "title": "Predicting a future Gaussian observation",
+      "deck": "The predictive variance contains observation noise plus uncertainty about the mean.",
+      "lecture": 3,
+      "slide": 13,
+      "page": 8,
+      "file": "lessons/l3-gaussian-prediction.md",
+      "topicId": "gaussian-predictive",
+      "sourceSlides": [
+        13
+      ],
+      "prerequisites": [
+        {
+          "title": "Posterior integration",
+          "detail": "Average conditional predictions over the posterior rather than choosing only one parameter."
+        },
+        {
+          "title": "Variance of independent sums",
+          "detail": "Independent variances add; this differs from adding precisions when estimating a common mean."
+        }
+      ],
+      "teachback": "Why is the Gaussian predictive variance σ² + σ_N², and why does it not approach zero as the dataset grows?",
+      "next": "l3-bernoulli-likelihood"
+    },
+    {
+      "id": "l3-bernoulli-likelihood",
+      "title": "Bernoulli likelihood, counts and boundary estimates",
+      "deck": "Learn a success probability from a sequence of binary observations.",
+      "lecture": 3,
+      "slide": 14,
+      "page": 9,
+      "file": "lessons/l3-bernoulli-likelihood.md",
+      "topicId": "bernoulli-likelihood",
+      "sourceSlides": [
+        14
+      ],
+      "prerequisites": [
+        {
+          "title": "Binary outcomes",
+          "detail": "Each observation is 0 or 1; its success probability θ can take any value between 0 and 1."
+        },
+        {
+          "title": "Products and powers",
+          "detail": "Repeated success factors multiply to θ raised to the number of successes."
+        }
+      ],
+      "teachback": "Derive the Bernoulli MLE, explain the all-heads boundary case, and distinguish a sequence likelihood from a binomial count probability.",
+      "next": "l3-beta-prior"
+    },
+    {
+      "id": "l3-beta-prior",
+      "title": "Beta priors: location, concentration and shapes",
+      "deck": "Separate an initial preferred success probability from the strength of that preference.",
+      "lecture": 3,
+      "slide": 15,
+      "page": 10,
+      "file": "lessons/l3-beta-prior.md",
+      "topicId": "beta-bernoulli",
+      "sourceSlides": [
+        15,
+        16
+      ],
+      "prerequisites": [
+        {
+          "title": "Gamma function",
+          "detail": "Gamma factors normalise the Beta density; Γ(n)=(n−1)! for positive integers."
+        },
+        {
+          "title": "Density on an interval",
+          "detail": "The Beta variable is a continuous probability parameter, not a binary outcome."
+        }
+      ],
+      "teachback": "Why do Beta(8,2) and Beta(80,20) have the same mean but different uncertainty, and what does “pseudo-count” mean?",
+      "next": "l3-beta-update"
+    },
+    {
+      "id": "l3-beta-update",
+      "title": "Deriving the Beta–Bernoulli posterior",
+      "deck": "Add observed counts, interpret weighted means, and distinguish posterior summaries.",
+      "lecture": 3,
+      "slide": 17,
+      "page": 11,
+      "file": "lessons/l3-beta-update.md",
+      "topicId": "beta-bernoulli",
+      "sourceSlides": [
+        17,
+        18
+      ],
+      "prerequisites": [
+        {
+          "title": "Beta density",
+          "detail": "Its kernel is θ^(α−1)(1−θ)^(β−1)."
+        },
+        {
+          "title": "Proportionality",
+          "detail": "A kernel omits constants independent of θ; the normalised density must still integrate to one."
+        }
+      ],
+      "teachback": "Derive the count update and explain why the posterior mean, MLE and MAP can be different.",
+      "next": "l3-bernoulli-curves"
+    },
+    {
+      "id": "l3-bernoulli-curves",
+      "title": "Four priors, one dataset: reading every update",
+      "deck": "Compare weak, symmetric, biased and strongly misleading priors on slides 19–22.",
+      "lecture": 3,
+      "slide": 19,
+      "page": 13,
+      "file": "lessons/l3-bernoulli-curves.md",
+      "topicId": "bernoulli-illustrations",
+      "sourceSlides": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "prerequisites": [
+        {
+          "title": "Conjugate updating",
+          "detail": "Add successes to α and failures to β."
+        },
+        {
+          "title": "Prior strength",
+          "detail": "The sum α+β determines the relative prior weight in the posterior mean."
+        }
+      ],
+      "teachback": "Using the four plotted priors, explain why the same data can yield different posterior beliefs and why a confident prior need not be accurate.",
+      "next": "l3-lab-preview"
+    },
+    {
+      "id": "l3-lab-preview",
+      "title": "Recognising the bandit lab without doing it",
+      "deck": "Connect priors, posteriors and sampling to the upcoming exercise; stop before lab work.",
+      "lecture": 3,
+      "slide": 23,
+      "page": 16,
+      "file": "lessons/l3-lab-preview.md",
+      "topicId": "lab-recognition",
+      "sourceSlides": [
+        23
+      ],
+      "prerequisites": [
+        {
+          "title": "Inference versus sampling",
+          "detail": "A posterior is a distribution; sampling draws possible values from that distribution."
+        },
+        {
+          "title": "Bernoulli and Gamma observations",
+          "detail": "Bernoulli models binary values; Gamma can model positive continuous observations."
+        }
+      ],
+      "teachback": "Explain the difference between sampling a parameter from a posterior and sampling an observation from a model.",
+      "next": "l4-inference-decisions"
+    },
+    {
+      "id": "l4-inference-decisions",
+      "title": "Separate inference from decisions",
+      "deck": "Probabilistic outputs make the boundary between evidence and action visible.",
+      "lecture": 4,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l4-inference-decisions.md",
+      "topicId": "decisions",
+      "sourceSlides": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "prerequisites": [
+        {
+          "title": "Classification and regression",
+          "detail": "Classification predicts categories; regression predicts numerical quantities."
+        },
+        {
+          "title": "Predictive uncertainty",
+          "detail": "A predictive distribution represents possible future observations, not a guaranteed outcome."
+        }
+      ],
+      "teachback": "Why might two people agree on a 70% probability but reasonably choose different actions?",
+      "next": "l4-decision-quality"
+    },
+    {
+      "id": "l4-decision-quality",
+      "title": "A good decision can have a bad outcome",
+      "deck": "Judge reasoning using the information available before the result; retain class probabilities for later decisions.",
+      "lecture": 4,
+      "slide": 5,
+      "page": 3,
+      "file": "lessons/l4-decision-quality.md",
+      "topicId": "decisions",
+      "sourceSlides": [
+        5,
+        6
+      ],
+      "prerequisites": [
+        {
+          "title": "Probability-weighted averages",
+          "detail": "Expected loss averages consequences across possible outcomes."
+        },
+        {
+          "title": "Inference versus decision",
+          "detail": "A probability estimate describes uncertainty; an action also requires consequences and context."
+        }
+      ],
+      "teachback": "An action chosen to minimise expected loss produces a bad result. What would you inspect before calling the original decision foolish?",
+      "next": "l4-prevalence"
+    },
+    {
+      "id": "l4-prevalence",
+      "title": "When the population changes, the probability changes",
+      "deck": "Recalibrate the lecture’s 95% trial prediction to about 2%, with the required assumptions.",
+      "lecture": 4,
+      "slide": 7,
+      "page": 4,
+      "file": "lessons/l4-prevalence.md",
+      "topicId": "prevalence",
+      "sourceSlides": [
+        7,
+        8
+      ],
+      "prerequisites": [
+        {
+          "title": "Bayes’ rule",
+          "detail": "Posterior class probabilities combine within-class likelihoods with class prevalence."
+        },
+        {
+          "title": "Odds",
+          "detail": "Odds p/(1−p) compare a probability with its complement; probability is odds/(1+odds)."
+        },
+        {
+          "title": "Population shift",
+          "detail": "The simple correction assumes only class prevalence changes, not the within-class feature distributions."
+        }
+      ],
+      "teachback": "How can the same features give 95% in a balanced trial but about 2% in the general population? State the required assumption.",
+      "next": "l4-asymmetric-costs"
+    },
+    {
+      "id": "l4-asymmetric-costs",
+      "title": "Choose actions using expected costs",
+      "deck": "Derive the medical and fraud thresholds from the lecture’s cost matrices.",
+      "lecture": 4,
+      "slide": 9,
+      "page": 4,
+      "file": "lessons/l4-asymmetric-costs.md",
+      "topicId": "asymmetric-costs",
+      "sourceSlides": [
+        9,
+        10
+      ],
+      "prerequisites": [
+        {
+          "title": "Expectation",
+          "detail": "Average an action’s losses using the probabilities of the true states."
+        },
+        {
+          "title": "Cost matrices",
+          "detail": "Rows give true states and columns give proposed actions; entries are losses, not probabilities."
+        },
+        {
+          "title": "Simple inequalities",
+          "detail": "Compare the two expected losses and solve for the probability threshold."
+        }
+      ],
+      "teachback": "Derive the 4% medical threshold and explain why it does not mean a patient above that threshold is probably diseased.",
+      "next": "l4-false-independence"
+    },
+    {
+      "id": "l4-false-independence",
+      "title": "False independence: the Sally Clark case study",
+      "deck": "Inspect the assumption behind multiplying rare-event probabilities and distinguish evidence from hypothesis probability.",
+      "lecture": 4,
+      "slide": 11,
+      "page": 5,
+      "file": "lessons/l4-false-independence.md",
+      "topicId": "false-independence",
+      "sourceSlides": [
+        11,
+        12
+      ],
+      "prerequisites": [
+        {
+          "title": "Product rule",
+          "detail": "P(A,B)=P(A)P(B|A); replacing the conditional by a marginal requires independence."
+        },
+        {
+          "title": "Shared latent variables",
+          "detail": "Two events can be dependent overall even if independent given a shared unknown cause."
+        },
+        {
+          "title": "Likelihood versus posterior",
+          "detail": "P(evidence|hypothesis) is not generally P(hypothesis|evidence)."
+        }
+      ],
+      "teachback": "Which assumption allows the one-in-8,543 probability to be squared, and how could a shared unknown condition invalidate it?",
+      "next": "l4-dependence-experiment"
+    },
+    {
+      "id": "l4-dependence-experiment",
+      "title": "A fictional experiment makes clustering visible",
+      "deck": "Reproduce the slide’s arithmetic, identify its denominator ambiguity, and define a clean dependent-event example.",
+      "lecture": 4,
+      "slide": 13,
+      "page": 6,
+      "file": "lessons/l4-dependence-experiment.md",
+      "topicId": "false-independence",
+      "sourceSlides": [
+        13,
+        14
+      ],
+      "prerequisites": [
+        {
+          "title": "Events and denominators",
+          "detail": "Define whether a number counts occurrences per example or the probability of a specified binary event."
+        },
+        {
+          "title": "Conditional probability",
+          "detail": "Knowing A can change the probability of B; this is incompatible with independence."
+        }
+      ],
+      "teachback": "In the labelled A/B dataset, why is the pair probability 0.001 rather than 0.001²? What makes the slide’s 250-fold arithmetic convention-dependent?",
+      "next": "l4-selection-pvalues"
+    },
+    {
+      "id": "l4-selection-pvalues",
+      "title": "Selection effects and p-values: the Lucia de Berk case study",
+      "deck": "Read the two tables critically and distinguish null tail probabilities from posterior beliefs.",
+      "lecture": 4,
+      "slide": 15,
+      "page": 7,
+      "file": "lessons/l4-selection-pvalues.md",
+      "topicId": "selection-pvalues",
+      "sourceSlides": [
+        15,
+        16,
+        17
+      ],
+      "prerequisites": [
+        {
+          "title": "Null model and tail events",
+          "detail": "A p-value measures a test statistic at least as extreme under a specified null procedure."
+        },
+        {
+          "title": "Selection mechanisms",
+          "detail": "A subject chosen in advance differs from the most unusual subject found after searching."
+        },
+        {
+          "title": "Expected counts",
+          "detail": "Across m comparable null tests, a tail probability q gives expected count mq."
+        }
+      ],
+      "teachback": "Why does a rare pattern for a nurse chosen in advance differ from a rare-looking pattern found after a large search, and why is neither a posterior guilt probability?",
+      "next": "l4-causation"
+    },
+    {
+      "id": "l4-causation",
+      "title": "Correlation is not an instruction for intervention",
+      "deck": "Interpret the student scatter plot and the proposed common-cause graph without claiming a causal effect from association.",
+      "lecture": 4,
+      "slide": 18,
+      "page": 8,
+      "file": "lessons/l4-causation.md",
+      "topicId": "causation",
+      "sourceSlides": [
+        18,
+        19,
+        20
+      ],
+      "prerequisites": [
+        {
+          "title": "Correlation",
+          "detail": "An association describes patterns among observations, not automatically an effect of changing a variable."
+        },
+        {
+          "title": "Graphical models",
+          "detail": "A common cause can influence two observed variables."
+        },
+        {
+          "title": "Observation versus intervention",
+          "detail": "Selecting people with an observed value differs from changing that value in comparable people."
+        }
+      ],
+      "teachback": "Why does observing that slower students score lower not establish that forcing a student to finish sooner would improve their mark?",
+      "next": "l4-simpson"
+    },
+    {
+      "id": "l4-simpson",
+      "title": "Simpson’s paradox: different mixtures, different totals",
+      "deck": "Use the admissions counts and weighted averages, with an explicit correction to the source’s Medicine claim.",
+      "lecture": 4,
+      "slide": 21,
+      "page": 9,
+      "file": "lessons/l4-simpson.md",
+      "topicId": "simpson",
+      "sourceSlides": [
+        21,
+        22,
+        23
+      ],
+      "prerequisites": [
+        {
+          "title": "Conditional rates",
+          "detail": "Acceptance within a department and acceptance across all departments use different denominators."
+        },
+        {
+          "title": "Weighted averages",
+          "detail": "The aggregate rate weights each department’s rate by its share of applications."
+        },
+        {
+          "title": "Confounding",
+          "detail": "A third variable can complicate an apparent relationship between the variables of interest."
+        }
+      ],
+      "teachback": "Explain how different subgroup weights can reverse an aggregate comparison. What discrepancy should you mention in the lecture’s Medicine row?",
+      "next": "l4-confounding-review"
+    },
+    {
+      "id": "l4-confounding-review",
+      "title": "Age confounding and the lecture’s closing message",
+      "deck": "Read the dated vaccination graph as a confounding lesson, then consolidate Lecture 4 and preview regression.",
+      "lecture": 4,
+      "slide": 24,
+      "page": 10,
+      "file": "lessons/l4-confounding-review.md",
+      "topicId": "historical-applications",
+      "sourceSlides": [
+        24,
+        25
+      ],
+      "prerequisites": [
+        {
+          "title": "Simpson’s paradox",
+          "detail": "Aggregate rates can reverse within-group patterns when mixture weights differ."
+        },
+        {
+          "title": "Causal interpretation",
+          "detail": "A graph’s causal assumptions do not by themselves provide an effect size or current medical guidance."
+        }
+      ],
+      "teachback": "How can age reverse an aggregate comparison without contradicting within-age-group rates? Then name the separate inference and decision stages.",
+      "next": "l5-regression-model"
+    },
+    {
+      "id": "l5-regression-model",
+      "title": "Regression and linear-in-parameter models",
+      "deck": "Predict a real-valued target using a weighted sum of fixed functions.",
+      "lecture": 5,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l5-regression-model.md",
+      "topicId": "linear-models",
+      "sourceSlides": [
+        1,
+        2,
+        3
+      ],
+      "prerequisites": [
+        {
+          "title": "Functions and observations",
+          "detail": "A function maps an input x to an output. An observed target can differ from its underlying noise-free value."
+        },
+        {
+          "title": "Weighted sums",
+          "detail": "Multiply each component by its weight and add the results; weights are adjustable parameters."
+        }
+      ],
+      "teachback": "What makes a regression model linear in its parameters, even when its curve is not a straight line?",
+      "next": "l5-basis-functions"
+    },
+    {
+      "id": "l5-basis-functions",
+      "title": "Choosing and reading basis functions",
+      "deck": "Fixed input transformations supply the building blocks of the fitted curve.",
+      "lecture": 5,
+      "slide": 4,
+      "page": 3,
+      "file": "lessons/l5-basis-functions.md",
+      "topicId": "linear-models",
+      "sourceSlides": [
+        4,
+        5
+      ],
+      "prerequisites": [
+        {
+          "title": "Powers and polynomials",
+          "detail": "x squared and higher powers transform an input nonlinearly while their coefficients can still enter linearly."
+        },
+        {
+          "title": "Exponentials",
+          "detail": "exp(0)=1; increasingly negative exponents give values approaching zero."
+        }
+      ],
+      "teachback": "Explain the roles of an RBF centre, its width and its weight. Which are fixed and which are learned in this lecture?",
+      "next": "l5-least-squares"
+    },
+    {
+      "id": "l5-least-squares",
+      "title": "Least squares: from residuals to the normal equations",
+      "deck": "Build the design matrix, check dimensions and derive the fitted weights.",
+      "lecture": 5,
+      "slide": 6,
+      "page": 4,
+      "file": "lessons/l5-least-squares.md",
+      "topicId": "least-squares",
+      "sourceSlides": [
+        6
+      ],
+      "prerequisites": [
+        {
+          "title": "Vectors, transpose and matrix multiplication",
+          "detail": "Treat weights and targets as column vectors. Transpose swaps matrix rows and columns; inner dimensions must match."
+        },
+        {
+          "title": "Squared norm",
+          "detail": "The squared Euclidean norm of a vector is the sum of its squared entries."
+        },
+        {
+          "title": "Gradient and rank",
+          "detail": "A gradient lists partial derivatives. Full column rank means no design-matrix column is redundant."
+        }
+      ],
+      "teachback": "Derive the least-squares normal equations and explain exactly when the displayed inverse formula is valid.",
+      "next": "l5-interpolation-overfitting"
+    },
+    {
+      "id": "l5-interpolation-overfitting",
+      "title": "Interpolation is not the same as generalisation",
+      "deck": "Understand why an exact fit can be a poor explanation of noisy observations.",
+      "lecture": 5,
+      "slide": 7,
+      "page": 5,
+      "file": "lessons/l5-interpolation-overfitting.md",
+      "topicId": "overfitting",
+      "sourceSlides": [
+        7
+      ],
+      "prerequisites": [
+        {
+          "title": "Training error",
+          "detail": "Training error measures fit to the observations used to choose the weights."
+        },
+        {
+          "title": "Noise and underlying signal",
+          "detail": "A noisy observation need not equal the function value we want to recover."
+        }
+      ],
+      "teachback": "Why does zero training error not establish that a fitted function will predict new targets well?",
+      "next": "l5-ridge-regularisation"
+    },
+    {
+      "id": "l5-ridge-regularisation",
+      "title": "Ridge regularisation and the role of lambda",
+      "deck": "Trade squared fitting error against squared weight size.",
+      "lecture": 5,
+      "slide": 8,
+      "page": 6,
+      "file": "lessons/l5-ridge-regularisation.md",
+      "topicId": "regularisation",
+      "sourceSlides": [
+        8,
+        9
+      ],
+      "prerequisites": [
+        {
+          "title": "Quadratic objectives and gradients",
+          "detail": "The derivative of one half times a squared weight is that weight."
+        },
+        {
+          "title": "Identity and positive definiteness",
+          "detail": "I leaves a vector unchanged. A positive-definite matrix has positive quadratic form in every nonzero direction."
+        }
+      ],
+      "teachback": "Derive the ridge solution, explain both extremes of lambda, and say why smaller weights are a modelling preference rather than a universal smoothness theorem.",
+      "next": "l5-validation"
+    },
+    {
+      "id": "l5-validation",
+      "title": "Selecting lambda using held-out observations",
+      "deck": "Distinguish fitting, hyperparameter selection and final evaluation.",
+      "lecture": 5,
+      "slide": 10,
+      "page": 7,
+      "file": "lessons/l5-validation.md",
+      "topicId": "validation",
+      "sourceSlides": [
+        10,
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Held-out evaluation",
+          "detail": "Data not used to fit the weights can provide evidence about predictions beyond the training sample."
+        },
+        {
+          "title": "Root mean square error",
+          "detail": "RMS error is the square root of the average squared residual; lower is better for that metric."
+        }
+      ],
+      "teachback": "Explain why we use validation rather than training error to select lambda, and why the test set must not become another tuning set.",
+      "next": "l5-gaussian-likelihood"
+    },
+    {
+      "id": "l5-gaussian-likelihood",
+      "title": "Gaussian noise turns least squares into maximum likelihood",
+      "deck": "Build the regression likelihood and derive its squared-error objective.",
+      "lecture": 5,
+      "slide": 12,
+      "page": 9,
+      "file": "lessons/l5-gaussian-likelihood.md",
+      "topicId": "regression-likelihood",
+      "sourceSlides": [
+        12,
+        13
+      ],
+      "prerequisites": [
+        {
+          "title": "Gaussian mean and variance",
+          "detail": "Adding zero-mean Gaussian noise shifts a deterministic prediction into a Gaussian distribution over targets."
+        },
+        {
+          "title": "Conditional independence and logarithms",
+          "detail": "Independent noise terms permit a product likelihood; log turns products into sums without changing maximisers."
+        }
+      ],
+      "teachback": "Derive the negative log-likelihood and explain why its weight estimate equals least squares. Are targets at different fixed inputs identically distributed?",
+      "next": "l5-gaussian-weight-prior"
+    },
+    {
+      "id": "l5-gaussian-weight-prior",
+      "title": "A Gaussian prior over the weights",
+      "deck": "Replace an informal preference for small weights with an explicit distribution.",
+      "lecture": 5,
+      "slide": 14,
+      "page": 10,
+      "file": "lessons/l5-gaussian-weight-prior.md",
+      "topicId": "weight-prior",
+      "sourceSlides": [
+        14
+      ],
+      "prerequisites": [
+        {
+          "title": "Precision versus variance",
+          "detail": "Precision is inverse variance. A larger precision gives a narrower Gaussian."
+        },
+        {
+          "title": "Multivariate Gaussian",
+          "detail": "A covariance matrix describes the spread and relationships across components of a vector."
+        }
+      ],
+      "teachback": "What does alpha control, why is it a hyperparameter, and how can an independent weight prior produce correlated fitted function values?",
+      "next": "l5-weight-posterior"
+    },
+    {
+      "id": "l5-weight-posterior",
+      "title": "Deriving the Gaussian posterior over weights",
+      "deck": "Complete the matrix square to obtain both mean and covariance.",
+      "lecture": 5,
+      "slide": 15,
+      "page": 11,
+      "file": "lessons/l5-weight-posterior.md",
+      "topicId": "weight-posterior",
+      "sourceSlides": [
+        15
+      ],
+      "prerequisites": [
+        {
+          "title": "Bayes and conjugacy",
+          "detail": "Posterior is proportional to likelihood times prior. Gaussian conjugacy means the resulting weight posterior is also Gaussian."
+        },
+        {
+          "title": "Completing the square",
+          "detail": "A quadratic and a linear term can be rewritten as a quadratic centred on a suitable mean."
+        },
+        {
+          "title": "Matrix dimensions and positive definiteness",
+          "detail": "The posterior precision is an M by M symmetric positive-definite matrix when alpha and noise variance are positive."
+        }
+      ],
+      "teachback": "Derive the posterior precision, mean and covariance. Which quantity does the covariance describe, and why can its off-diagonal terms be nonzero?",
+      "next": "l5-map-ridge"
+    },
+    {
+      "id": "l5-map-ridge",
+      "title": "MAP estimation and its exact connection to ridge",
+      "deck": "Understand the useful shortcut—and the uncertainty it discards.",
+      "lecture": 5,
+      "slide": 16,
+      "page": 11,
+      "file": "lessons/l5-map-ridge.md",
+      "topicId": "map",
+      "sourceSlides": [
+        16
+      ],
+      "prerequisites": [
+        {
+          "title": "Mode and mean",
+          "detail": "The mode maximises density. It equals the mean for this nondegenerate Gaussian, but not for every distribution."
+        },
+        {
+          "title": "Logarithms and constants",
+          "detail": "A normalising factor independent of weights does not change the maximising weight vector."
+        }
+      ],
+      "teachback": "Derive lambda = sigma-squared times alpha under this lecture’s objective convention. Why is retaining only MAP not the full Bayesian result?",
+      "next": "l5-sequential-learning"
+    },
+    {
+      "id": "l5-sequential-learning",
+      "title": "Sequential learning in weight space and function space",
+      "deck": "Read every stage of the lecture’s prior-to-posterior demonstration.",
+      "lecture": 5,
+      "slide": 17,
+      "page": 12,
+      "file": "lessons/l5-sequential-learning.md",
+      "topicId": "sequential-learning",
+      "sourceSlides": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "prerequisites": [
+        {
+          "title": "Conditional independence",
+          "detail": "New observation likelihoods multiply when noise terms are independent given the same weights and model."
+        },
+        {
+          "title": "Gaussian contours",
+          "detail": "Contours join equal density. Smaller contours at comparable density levels indicate more concentrated parameter uncertainty."
+        },
+        {
+          "title": "Function samples",
+          "detail": "Sample a whole weight vector, then use the fixed basis functions to produce a whole curve."
+        }
+      ],
+      "teachback": "Explain why sequential and batch updating agree, then narrate what changes in each column from the prior to 7, 8, 15 and 200 observations.",
+      "next": "l5-summary-previews"
+    },
+    {
+      "id": "l5-summary-previews",
+      "title": "What Lecture 5 establishes—and what remains a preview",
+      "deck": "Separate the completed posterior derivation from the later prediction and model-selection agenda.",
+      "lecture": 5,
+      "slide": 23,
+      "page": 15,
+      "file": "lessons/l5-summary-previews.md",
+      "topicId": "regression-previews",
+      "sourceSlides": [
+        23
+      ],
+      "prerequisites": [
+        {
+          "title": "Point estimate versus distribution",
+          "detail": "The mean or mode is one vector; a posterior also describes uncertainty and relationships around it."
+        },
+        {
+          "title": "Hyperparameters and model choices",
+          "detail": "Alpha, noise variance and fixed RBF width play different roles from the fitted weights."
+        }
+      ],
+      "teachback": "Explain what full Bayesian regression adds beyond the ridge weight vector, and name the three topics that this lecture signposts rather than derives."
+    }
+  ],
+  "sourceWarnings": [
+    {
+      "lecture": 2,
+      "slide": 28,
+      "text": "The source PDF clips the right-hand indirect-dependence column. Missing text is not reconstructed; consult the visible original and treat this preview as incomplete."
+    },
+    {
+      "lecture": 1,
+      "slide": 3,
+      "text": "Timetables, assessment arrangements and historical course details are transcribed source material, not current administrative guidance."
+    },
+    {
+      "lecture": 4,
+      "slide": 11,
+      "text": "Historical legal/medical examples and the dated applications on slide 24 are lecture case studies, not independently updated facts or professional guidance."
+    },
+    {
+      "lecture": 5,
+      "slide": 23,
+      "text": "Full predictive derivations, evidence-based fitting of alpha/noise variance and model/basis-width selection are signposted for later lectures, not taught in full here."
+    },
+    {
+      "lecture": 4,
+      "slide": 16,
+      "text": "A p-value is a tail probability under a specified null model, not the posterior probability that deaths were accidental or that a hypothesis is true. Treat the quoted case-study interpretation critically, alongside the dependence and selection discussion."
+    },
+    {
+      "lecture": 4,
+      "slide": 12,
+      "text": "The printed joint-probability annotation involving 1 in 1,500 is unclear. No reliable replacement estimate is inferred; the lesson explains the dependence principle instead."
+    },
+    {
+      "lecture": 4,
+      "slide": 13,
+      "text": "The 250-fold comparison uses event occurrences per example rather than a pair of labelled-event marginal probabilities. The lesson preserves the slide arithmetic and explains this denominator ambiguity."
+    },
+    {
+      "lecture": 4,
+      "slide": 22,
+      "text": "The claim that every department favours female applicants is not literally supported by the supplied counts: Medicine is 99/416 versus 140/578, both rounded to 24%. The lesson uses the exact rates and explains the weighted-mixture effect."
+    }
+  ]
+}
