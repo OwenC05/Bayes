@@ -40,7 +40,7 @@ export function buildServer(options = {}) {
       if (path === '/api/health') { send(200, { status: 'ok', localOnly: true }); return; }
       if (path === '/api/catalog') { send(200, await content.catalog()); return; }
       if (path === '/api/current') { send(200, await content.current()); return; }
-      const lectureMatch = path.match(/^\/api\/lectures\/([1-8])$/);
+      const lectureMatch = path.match(/^\/api\/lectures\/([1-9]|10)$/);
       if (lectureMatch) {
         const lecture = await content.lecture(Number(lectureMatch[1]));
         send(lecture ? 200 : 404, lecture || { error: 'Lecture not found.' }); return;
@@ -51,7 +51,7 @@ export function buildServer(options = {}) {
         send(lesson ? 200 : 404, lesson || { error: 'Lesson not found.' }); return;
       }
       if (path === '/' || files.has(path.slice(1))) { await serve(paths.appDir, path === '/' ? 'index.html' : path.slice(1)); return; }
-      if (/^\/lectures\/[1-8]\.(pdf|md)$/.test(path)) { await serve(paths.lectureDir, path.slice('/lectures/'.length)); return; }
+      if (/^\/lectures\/(?:[1-9]|10)\.(pdf|md)$/.test(path)) { await serve(paths.lectureDir, path.slice('/lectures/'.length)); return; }
       if (path.startsWith('/lecture-assets/') && /\.png$/.test(path)) { await serve(resolve(paths.lectureDir, 'assets'), path.slice('/lecture-assets/'.length)); return; }
       const vendors = { '/vendor/marked.mjs': ['marked', 'lib/marked.esm.js'], '/vendor/purify.mjs': ['dompurify', 'dist/purify.es.mjs'], '/vendor/katex/katex.mjs': ['katex', 'dist/katex.mjs'], '/vendor/katex/katex.min.css': ['katex', 'dist/katex.min.css'] };
       if (vendors[path]) { const [packageName, file] = vendors[path]; await serve(resolve(paths.vendorDir, packageName), file); return; }

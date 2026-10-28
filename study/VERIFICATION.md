@@ -1,3 +1,38 @@
+# Verification — 27 October 2026
+
+## Ten-lecture integration: fresh evidence
+
+- **24 new tutor lessons:** 13 for Lecture 9 and 11 for Lecture 10. All 47 new source slides are covered, with correct first-slide page mappings and linked roadmap topics. Total: 96 lessons; 92 full lessons cover all 192 slides in Lectures 3–10, plus four earlier focused lessons.
+- **Sources:** ten unchanged PDFs, 243 numbered slides and 185 original pages. Lectures 9 and 10 add complete page-by-page Markdown and 49 lossless original-page PNGs at 1224 × 1584 pixels. Figure continuations do not invent new slide numbers.
+- **Automated suite:** `node --test --test-isolation=none study/test/*.test.mjs` passes **136 tests, 0 failures**. Coverage includes all source/lesson renderers and equations, lesson/source/topic links, full ordered navigation, page/image structure, HTTP/API/static allowlists, rejected writes, traversal and symlink containment, state recovery and new lecture-note persistence. New lesson counts are explicitly checked as 13 and 11 (96 total).
+- **Syntax:** `npm run check` and `node --check study/test/browser-smoke.mjs` pass. This buildless JavaScript application has no separate lint, TypeScript or compilation step.
+- **Regression-first evidence:** the old modules rejected lecture IDs 9/10 and dropped their lecture notes on a storage round trip. The narrow validation/storage checks pass after the minimal range changes. Out-of-range and lookalike source/API identifiers, including 11, 09, 010 and 100, remain rejected.
+- **Browser smoke:** `npm run test:browser` passes in an isolated headless Chromium session and ephemeral loopback server. It checks all ten source renderers and all 96 lesson renderers, double-digit PDF/Markdown/slide rewrites, grouped lesson navigation, roadmap numbering, original-page rail images and cross-lecture next links including 8→9→10.
+- **Browser persistence and recovery:** lecture notes/answers for 6–10 and a Lecture 10 lesson survive reload. Existing failed-save retention, stale-request isolation, skip links, unreadable-data preservation and recovery export regressions pass.
+- **Mobile:** 375px viewport; no document-level horizontal overflow on any of the ten source views or the 57 lessons in Lectures 6–10, including all 24 additions.
+- **Preservation:** SHA-256 comparison confirms 226 pre-existing source/PDF/image/lesson files unchanged. Original lecture/topic metadata, prior lesson metadata (apart from the former final lesson's new next link), prior warnings, `currentLesson`, browser storage key and state version are preserved. All new topics default to Not started.
+- **Independent content review:** both new transcriptions, all 24 lessons and both metadata bundles reviewed for mathematics, teaching depth and source fidelity. No remaining mathematical blockers; misleading references to an unavailable numerical transition matrix were corrected against the original images.
+
+The first Chromium launch failed because the host did not expose its NSPR/NSS/ALSA libraries on the normal library path. The successful run reused existing host support libraries, without installing anything or changing application dependencies:
+
+```sh
+LD_LIBRARY_PATH=/home/owenc/.cache/copilot-browser-runtime/root/usr/lib/x86_64-linux-gnu npm run test:browser
+```
+
+A normally provisioned Chromium host does not need this override. Browser sessions and ephemeral servers close after verification; no user server is restarted. Browser smoke was run against a temporary integration copy containing the same application, source, lesson and dependency bytes. Final repository unit/syntax checks repeat after copying the approved files.
+
+## Source and learning boundaries
+
+- Prepared content is not evidence of learning or mastery; the existing initial tutor point remains `l3-bayesian-workflow`.
+- Detailed balance is distinguished from convergence, thinning from independence, posterior SD from Monte Carlo error, and HMC trajectories from iid samples. Log-prior bounds, coordinate measures and predictive mixture variance are explicit.
+- NumPyro/JAX snippets and printed outputs remain source material, not newly executed results. Lessons explain observation-site conditioning, Beta argument ordering, predictive shapes, random-key streams, warmup and diagnostic limitations, including HPDI versus equal-tail intervals and single-chain split-R-hat.
+- Missing matrix entries, clipped printed output and unavailable live-demo results are not invented. Supplemental derivations and examples are labelled. Hierarchical modelling remains a preview.
+- No new application dependencies, cloud deployment, sampler/demo/labsheet execution, automated grading or comprehensive accessibility audit is claimed. See `content/COVERAGE.md` for every lesson/source grouping.
+
+## Historical verification below
+
+The following dated records concern earlier versions and are retained for provenance. Their historical audit, screenshot and environment-specific claims are not presented as newly rerun.
+
 # Verification — 15 October 2026
 
 ## Eight-lecture integration: fresh evidence

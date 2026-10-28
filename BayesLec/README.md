@@ -12,6 +12,8 @@ Markdown transcriptions of the lecture PDFs in this folder, taught by Edward Mil
 | 6 | Marginalisation & Type-II Maximum Likelihood — Realising the Power of Bayesian Inference | [Lecture 6](6.md) | [PDF](6.pdf) | 21 |
 | 7 | Fully-Bayesian Inference — Marginalising Over All Hyperparameters | [Lecture 7](7.md) | [PDF](7.pdf) | 12 |
 | 8 | Monte Carlo and Importance Sampling — Approximating Intractable Integrals Stochastically | [Lecture 8](8.md) | [PDF](8.pdf) | 27 |
+| 9 | MCMC & Hamiltonian Monte Carlo — Cutting-Edge Stochastic Approximation | [Lecture 9](9.md) | [PDF](9.pdf) | 34 |
+| 10 | Probabilistic Programming — Modern Software for Bayesian Modelling | [Lecture 10](10.md) | [PDF](10.pdf) | 15 |
 
 ## Reading the notes
 
@@ -28,3 +30,10 @@ Markdown transcriptions of the lecture PDFs in this folder, taught by Edward Mil
 - The Lecture 7 printed predictive sums need normalised posterior grid weights and consistent measures. Width remains a plug-in estimate until explicitly integrated. The model-family demonstration agenda is not an available set of numerical outputs.
 - Lecture 8 conditions the usual Monte Carlo standard-error rate on iid, finite-variance samples; importance-sampling support/tail requirements, finite-sample ratio bias, and ambiguous Gaussian-volume geometry are explained without inventing demo output.
 - Source notes are paired with distinct tutor lessons in `../study/content/lessons/`; prepared content is not evidence of learning or mastery.
+
+## Lectures 9–10 source boundaries
+
+- Lecture 9 preserves all 26 slides across 34 printed PDF pages; Lecture 10 preserves all 21 slides across 15 printed PDF pages. All 49 original pages are embedded as lossless PNGs. Browser-print headers, footers and page breaks remain visible in the images; figure continuations are not counted as new slides.
+- Detailed balance, thinning and HMC-independence claims are qualified rather than silently replaced. Source length-scale heuristics and acceptance targets are not universal guarantees. Log-scale priors and transformed density measures remain explicit.
+- Lecture 10 retains literal code and visible printed outputs, with wrapped lines rejoined and clipped output marked. NumPyro/JAX documentation-backed clarifications distinguish prior and posterior predictive sampling, Beta array ordering, random keys, warmup, HPDI intervals, effective sample size and split-R-hat. No demo or sampling code was executed.
+- Ten PDFs remain unchanged; the complete source library contains 243 numbered slides across 185 original pages. The companion retains its existing reading position and self-assessment defaults.

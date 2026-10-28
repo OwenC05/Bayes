@@ -253,13 +253,13 @@ function makeAssessment(topic) {
 }
 
 function showRoadmap() {
-  $('eyebrow').textContent = 'Lectures 01–08 / Learning roadmap';
+  $('eyebrow').textContent = 'Lectures 01–10 / Learning roadmap';
   $('page-title').textContent = 'From understanding to explaining.';
   $('page-description').textContent = 'Finish the probability toolkit, revisit the motivation, then work through inference, decisions and regression. Prerequisites appear where they are needed.';
   $('roadmap-body').replaceChildren(...catalog.lectures.map(lecture => {
     const section = node('section', undefined, 'roadmap-lecture');
     const heading = node('h3');
-    heading.append(sourceChip(`0${lecture.id} · ${lecture.shortTitle}`, `#notes/${lecture.id}`));
+    heading.append(sourceChip(`${String(lecture.id).padStart(2, '0')} · ${lecture.shortTitle}`, `#notes/${lecture.id}`));
     section.append(heading, node('p', lecture.description));
     for (const topic of lecture.topics) {
       const row = node('div', undefined, 'topic-row');

@@ -1,6 +1,6 @@
 # Local Bayesian study companion
 
-A visual companion for studying Lectures 1–8 with the tutor in the existing conversation. Lectures 3–8 have **68 full tutor lessons** (13, 10, 12, 13, 9 and 11 respectively), covering all 145 source slides in those lectures; four earlier focused lessons remain available, for **72 lessons total**. All eight sources contain 196 slides across 136 original pages. It renders focused lessons and the indexed lecture notes with equations and original-page figures. It is **not an AI chatbot**, automatic grader or labsheet runner.
+A visual companion for studying Lectures 1–10 with the tutor in the existing conversation. Lectures 3–10 have **92 full tutor lessons**, covering all 192 source slides in those lectures; four earlier focused lessons remain available, for **96 lessons total**. All ten sources contain 243 slides across 185 original pages. It renders focused lessons and indexed lecture notes with equations and original-page figures. It is **not an AI chatbot**, automatic grader or labsheet runner.
 
 ## Run from the repository root
 
@@ -50,6 +50,12 @@ Notes, teach-back answers and self-assessed progress are stored in the browser l
 
 Lecture 2 slide 28 is clipped in the PDF. Missing text is not invented. Administrative dates and historical examples are preserved as lecture material, not updated professional or administrative guidance. Lecture 5's full predictive derivation and evidence-based hyperparameter fitting are previews for later teaching, not completed topics within Lecture 5; Lectures 6–8 now develop prediction, evidence and numerical approximation in separate lessons.
 
-Lectures 6–8 remain **Not started** by default. New lessons explain the Gaussian predictive variance, evidence and Type-II approximation, bounded log-scale priors and Jacobians, posterior-weighted grid mixtures, width/model averaging, Monte Carlo conditions, self-normalised importance sampling and high-dimensional geometry. Source notation ambiguities and corrections are visible beside the relevant material; unavailable demo results are not reconstructed. Proper priors and explicit model priors matter for evidence comparisons. MCMC is a preview, not a complete implemented algorithm or proof.
+Lectures 6–8 remain **Not started** by default. New lessons explain the Gaussian predictive variance, evidence and Type-II approximation, bounded log-scale priors and Jacobians, posterior-weighted grid mixtures, width/model averaging, Monte Carlo conditions, self-normalised importance sampling and high-dimensional geometry. Source notation ambiguities and corrections are visible beside the relevant material; unavailable demo results are not reconstructed. Proper priors and explicit model priors matter for evidence comparisons. MCMC is a preview within Lecture 8; Lecture 9 separately develops Metropolis-Hastings and HMC, with mathematical justifications and labelled supplementary leapfrog calculations.
 
 Lecture-note deep links and locally saved writing now support Lectures 6–8 as well (for example `#notes/8/slide-25`). The browser storage key and format are unchanged, so earlier notes and self-assessments are preserved. No model fitting, sampling demo or labsheet is executed by the app.
+
+## Lectures 9–10
+
+Lecture 9 adds **13 lessons** on Markov chains, Metropolis-Hastings, stationarity and convergence, correlated samples and effective sample size, random-walk geometry, HMC, regression prediction and tuning. Lecture 10 adds **11 lessons** on probabilistic programs and graphical models, the Beta–Bernoulli model, NumPyro/JAX code, prior/posterior prediction, NUTS and diagnostics. Both follow the existing prerequisite, derivation, worked-example, checkpoint and teach-back approach.
+
+All new topics remain **Not started**. The initial tutor point, storage key/version and earlier progress defaults are unchanged. Double-digit lecture navigation, PDF/Markdown links and saved lecture notes support Lecture 10 (for example `#notes/10/slide-19`). Source outputs are transcribed, not newly reproduced. No new application dependencies, sampler execution or lab completion is implied. Hierarchical modelling remains a preview for later lectures.

@@ -35,12 +35,12 @@ test('file containment rejects traversal and symlink escape', async () => {
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
-test('real course contains all eight lectures, original slides and linked current lesson', async () => {
+test('real course contains all ten lectures, original slides and linked current lesson', async () => {
   const store = createContentStore({ contentDir: resolve('study/content'), lectureDir: resolve('BayesLec') });
   const catalog = await store.catalog();
-  assert.deepEqual(catalog.lectures.map(item => item.id), [1, 2, 3, 4, 5, 6, 7, 8]);
-  assert.deepEqual(catalog.lectures.map(item => item.slides.length), [23, 28, 23, 25, 23, 28, 20, 26]);
-  assert.deepEqual(catalog.lectures.map(item => item.pages), [20, 13, 17, 11, 15, 21, 12, 27]);
+  assert.deepEqual(catalog.lectures.map(item => item.id), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  assert.deepEqual(catalog.lectures.map(item => item.slides.length), [23, 28, 23, 25, 23, 28, 20, 26, 26, 21]);
+  assert.deepEqual(catalog.lectures.map(item => item.pages), [20, 13, 17, 11, 15, 21, 12, 27, 34, 15]);
   for (const metadata of catalog.lessons) assert.ok((await store.lesson(metadata.id)).markdown.length > 100);
   assert.equal((await store.current()).id, catalog.currentLesson);
   assert.ok(catalog.lessons.find(item => item.id === catalog.currentLesson));
@@ -48,7 +48,7 @@ test('real course contains all eight lectures, original slides and linked curren
   assert.equal(await store.lesson('missing'), null);
 });
 
-test('every slide and roadmap topic in Lectures 3–8 has a substantial linked lesson', async () => {
+test('every slide and roadmap topic in Lectures 3–10 has a substantial linked lesson', async () => {
   const store = createContentStore({ contentDir: resolve('study/content'), lectureDir: resolve('BayesLec') });
   const catalog = await store.catalog();
   for (const lecture of catalog.lectures.filter(item => item.id >= 3)) {
@@ -85,18 +85,21 @@ test('lesson navigation is a complete ordered chain and embedded source images e
   }
 });
 
-test('course validation accepts lecture 6–8 and rejects lecture 9', () => {
-  const base = { currentLesson: 'example', lectures: [6, 7, 8].map(id => ({ id, topics: [] })), lessons: [{ id: 'example', lecture: 6, topicId: 'example', file: 'lessons/example.md', slide: 1, page: 1, prerequisites: [], teachback: 'Explain the model.' }] };
+test('course validation accepts lecture 6–10 and rejects lecture 11', () => {
+  const base = { currentLesson: 'example', lectures: [6, 7, 8, 9, 10].map(id => ({ id, topics: [] })), lessons: [{ id: 'example', lecture: 6, topicId: 'example', file: 'lessons/example.md', slide: 1, page: 1, prerequisites: [], teachback: 'Explain the model.' }] };
   base.lectures[0].topics.push({ id: 'example', status: 'not-started' });
   assert.equal(validateCourse(base), base);
-  assert.throws(() => validateCourse({ ...base, lectures: [...base.lectures, { id: 9, topics: [] }] }), /Invalid lecture ID/);
+  for (const id of [0, 11, 100, '09', '10']) assert.throws(() => validateCourse({ ...base, lectures: [...base.lectures, { id, topics: [] }] }), /Invalid lecture ID/);
 });
 
 test('new curriculum has substantive teaching checks, untouched progress defaults and preserved resume point', async () => {
   const store = createContentStore({ contentDir: resolve('study/content'), lectureDir: resolve('BayesLec') });
   const catalog = await store.catalog();
   assert.equal(catalog.currentLesson, 'l3-bayesian-workflow');
-  assert.equal(catalog.lessons.length, 72);
+  assert.equal(catalog.lessons.length, 96);
+  assert.equal(catalog.lessons.filter(lesson => lesson.lecture <= 8).length, 72);
+  assert.deepEqual([9, 10].map(id => catalog.lessons.filter(lesson => lesson.lecture === id).length), [13, 11]);
+  for (const id of [9, 10]) assert.ok(catalog.lessons.filter(lesson => lesson.lecture === id).length > 1, `Lecture ${id}: missing new lesson sequence`);
   assert.deepEqual([6, 7, 8].map(id => catalog.lessons.filter(lesson => lesson.lecture === id).length), [13, 9, 11]);
   for (const lecture of catalog.lectures.filter(item => item.id >= 6)) {
     assert.ok(lecture.topics.every(topic => topic.status === 'not-started'), `Lecture ${lecture.id}: prepared must not mean learned`);
@@ -109,7 +112,7 @@ test('new curriculum has substantive teaching checks, untouched progress default
       assert.match(markdown, /<details>\s*<summary>Answer and (?:explanation|reasoning)<\/summary>[\s\S]+?<\/details>/, metadata.id);
       assert.match(markdown, /\bA\.\s/); assert.match(markdown, /\bB\.\s/);
       assert.match(markdown, /^## Teach-back$/m, metadata.id);
-      assert.match(markdown, /Source(?: boundary)?:.*Lecture [678]/, metadata.id);
+      assert.match(markdown, /Source(?: boundary)?:.*Lecture (?:[6-9]|10)\b/, metadata.id);
       bodies.push(markdown);
     }
     assert.match(bodies.join('\n'), /worked|numerical (?:example|contrast)|supporting .*calculation/i, `Lecture ${lecture.id}: no worked explanations`);

@@ -29,7 +29,7 @@ try {
 
  assert(document.querySelector('#assessment-select').value!=='can-explain','Opening marked mastery');
  const course=await(await fetch('/api/catalog')).json();
- assert(course.lectures.length===8&&course.lessons.length===72,'Expanded catalog incomplete');
+ assert(course.lectures.length===10&&course.lessons.length===96&&course.lessons.filter(item=>item.lecture<=8).length===72&&[9,10].every(id=>course.lessons.filter(item=>item.lecture===id).length>1),'Expanded catalog incomplete');
  const range=String(course.lectures[0].id).padStart(2,'0')+'—'+String(course.lectures.at(-1).id).padStart(2,'0');
  assert(document.querySelector('.sidebar-heading span').textContent===range,'Sidebar lecture range does not match catalog');
  for(const lecture of course.lectures){
@@ -40,10 +40,13 @@ try {
   assert(el.querySelector('a[href="/lectures/'+lecture.id+'.pdf"]')&&el.querySelector('a[href="#notes/'+lecture.id+'"]')&&el.querySelector('a[href="#notes/'+lecture.id+'/slide-2"]'),'Source/deep-link rewrite failure '+lecture.id);
  }
  assert(document.querySelectorAll('#lesson-select option').length===course.lessons.length,'Lesson picker incomplete');
+ location.hash='#roadmap';await until(()=>document.querySelector('#eyebrow').textContent==='Lectures 01–10 / Learning roadmap'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
+ for(const lecture of course.lectures)assert(document.querySelector('#roadmap-body h3 a[href="#notes/'+lecture.id+'"]').textContent.startsWith(String(lecture.id).padStart(2,'0')+' · '),'Roadmap lecture number incorrect '+lecture.id);
+
  for(const lesson of course.lessons){const body=await(await fetch('/api/lessons/'+lesson.id)).json();assert(!render(el,body.markdown,{lectureId:lesson.lecture}).mathErrors,'Lesson render failure '+lesson.id);assert([...el.querySelectorAll('.katex-display,table,pre')].every(block=>block.tabIndex===0),'Scrollable content lacks keyboard access '+lesson.id)}
  for(const lecture of course.lectures.filter(item=>item.id>=3)){
   document.querySelector('[data-lecture="'+lecture.id+'"]').click();
-  await until(()=>document.querySelector('#eyebrow').textContent.startsWith('Lecture 0'+lecture.id)&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
+  await until(()=>document.querySelector('#eyebrow').textContent.startsWith('Lecture '+String(lecture.id).padStart(2,'0'))&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   assert(location.hash.startsWith('#lesson/l'+lecture.id+'-'),'Lecture navigation did not open lessons');
   const last=course.lessons.filter(item=>item.lecture===lecture.id).at(-1);
   const picker=document.querySelector('#lesson-select');picker.value=last.id;picker.dispatchEvent(new Event('change',{bubbles:true}));
@@ -53,13 +56,13 @@ try {
  }
  for(const lecture of course.lectures){
   location.hash='#notes/'+lecture.id+'/slide-2';
-  await until(()=>document.querySelector('#eyebrow').textContent==='Lecture 0'+lecture.id+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
+  await until(()=>document.querySelector('#eyebrow').textContent==='Lecture '+String(lecture.id).padStart(2,'0')+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   assert(document.querySelector('#lecture-body #slide-2'),'Missing source deep-link heading '+lecture.id);
   assert(document.querySelectorAll('#slide-list a').length===lecture.slides.length,'Source TOC incomplete '+lecture.id);
   assert(document.querySelector('#source-link').getAttribute('href').startsWith('/lectures/'+lecture.id+'.pdf#page='),'Wrong original PDF source link '+lecture.id);
   await until(()=>document.querySelector('#source-image').complete&&document.querySelector('#source-image').naturalWidth>0);
  }
- for(const id of [5,6,7]){
+ for(const id of [5,6,7,8,9]){
   const last=course.lessons.filter(item=>item.lecture===id).at(-1),next=course.lessons.find(item=>item.id===last.next);
   location.hash='#lesson/'+last.id;await until(()=>document.querySelector('#page-title').textContent===last.title&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   document.querySelector('#next-lesson').click();await until(()=>document.querySelector('#page-title').textContent===next.title&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
@@ -92,26 +95,26 @@ try {
 (async()=>{
  const until=async predicate=>{const end=Date.now()+6000;while(!predicate()){if(Date.now()>end)throw Error('Persistence UI timed out');await new Promise(r=>setTimeout(r,50))}};
  const course=await(await fetch('/api/catalog')).json();
- const lesson=course.lessons.find(item=>item.lecture===8);
- for(const id of [6,7,8]){
-  location.hash='#notes/'+id+'/slide-2';await until(()=>document.querySelector('#eyebrow').textContent==='Lecture 0'+id+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
+ const lesson=course.lessons.find(item=>item.lecture===10);
+ for(const id of [6,7,8,9,10]){
+  location.hash='#notes/'+id+'/slide-2';await until(()=>document.querySelector('#eyebrow').textContent==='Lecture '+String(id).padStart(2,'0')+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   for(const [field,value] of [['personal-notes','Persisted lecture '+id],['teachback-answer','Lecture answer '+id]]){const input=document.getElementById(field);input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}))}
  }
  location.hash='#lesson/'+lesson.id;await until(()=>document.querySelector('#page-title').textContent===lesson.title&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
  for(const [field,value] of [['personal-notes','Persisted new lesson'],['teachback-answer','Persisted new teach-back']]){const input=document.getElementById(field);input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}))}
  location.reload();return {persistence:'written; reloading'};
 })()`));
-  await browser('wait', '--fn', "document.querySelector('#eyebrow').textContent==='Lecture 08 / Focused lesson' && !document.querySelector('#main-content').hasAttribute('aria-busy')");
+  await browser('wait', '--fn', "document.querySelector('#eyebrow').textContent==='Lecture 10 / Focused lesson' && !document.querySelector('#main-content').hasAttribute('aria-busy')");
   console.log(await browser('eval', `
 (async()=>{
  const assert=(condition,message)=>{if(!condition)throw Error(message)};
  const until=async predicate=>{const end=Date.now()+6000;while(!predicate()){if(Date.now()>end)throw Error('Persistence reload timed out');await new Promise(r=>setTimeout(r,50))}};
  assert(document.querySelector('#personal-notes').value==='Persisted new lesson'&&document.querySelector('#teachback-answer').value==='Persisted new teach-back','New lesson writing did not survive reload');
- for(const id of [6,7,8]){
-  location.hash='#notes/'+id+'/slide-2';await until(()=>document.querySelector('#eyebrow').textContent==='Lecture 0'+id+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
+ for(const id of [6,7,8,9,10]){
+  location.hash='#notes/'+id+'/slide-2';await until(()=>document.querySelector('#eyebrow').textContent==='Lecture '+String(id).padStart(2,'0')+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   assert(document.querySelector('#personal-notes').value==='Persisted lecture '+id&&document.querySelector('#teachback-answer').value==='Lecture answer '+id,'Lecture writing lost after reload '+id);
  }
- return {newLessonWriting:'reload pass',lectureNotes:'6–8 reload pass'};
+ return {newLessonWriting:'reload pass',lectureNotes:'6–10 reload pass'};
 })()`));
   await browser('eval', "localStorage.setItem('bayes-study-companion-v1','{important-unreadable-data');location.reload()");
   await browser('wait', '--fn', "document.querySelector('#save-status').textContent.includes('preserved')");
@@ -135,14 +138,14 @@ try {
  const until=async predicate=>{const end=Date.now()+6000;while(!predicate()){if(Date.now()>end)throw Error('Mobile UI timed out');await new Promise(r=>setTimeout(r,50))}};
  const course=await(await fetch('/api/catalog')).json();
  for(const lecture of course.lectures){
-  location.hash='#notes/'+lecture.id+'/slide-2';await until(()=>document.querySelector('#eyebrow').textContent==='Lecture 0'+lecture.id+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
+  location.hash='#notes/'+lecture.id+'/slide-2';await until(()=>document.querySelector('#eyebrow').textContent==='Lecture '+String(lecture.id).padStart(2,'0')+' / Original notes'&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   assert(document.documentElement.scrollWidth<=innerWidth,'Mobile source overflow '+lecture.id);
  }
  for(const lesson of course.lessons.filter(item=>item.lecture>=6)){
   location.hash='#lesson/'+lesson.id;await until(()=>document.querySelector('#page-title').textContent===lesson.title&&!document.querySelector('#main-content').hasAttribute('aria-busy'));
   assert(document.documentElement.scrollWidth<=innerWidth,'Mobile lesson overflow '+lesson.id);
  }
- return {mobileWidth:innerWidth,sourcePages:course.lectures.length,newLessons:33,overflow:false};
+ return {mobileWidth:innerWidth,sourcePages:course.lectures.length,newLessons:course.lessons.filter(item=>item.lecture>=6).length,overflow:false};
 })()`));
   const overflow = await browser('eval', 'document.documentElement.scrollWidth>innerWidth');
   if (overflow !== 'false') throw Error('Mobile page overflow');

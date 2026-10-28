@@ -34,7 +34,7 @@ export function validateCourse(course) {
   const topicIds = new Set();
   const topicLectures = new Map();
   for (const lecture of course.lectures) {
-    if (!Number.isInteger(lecture.id) || lecture.id < 1 || lecture.id > 8 || lectureIds.has(lecture.id)) throw new Error('Invalid lecture ID');
+    if (!Number.isInteger(lecture.id) || lecture.id < 1 || lecture.id > 10 || lectureIds.has(lecture.id)) throw new Error('Invalid lecture ID');
     lectureIds.add(lecture.id);
     if (!Array.isArray(lecture.topics)) throw new Error('Missing lecture topics');
     for (const topic of lecture.topics) {

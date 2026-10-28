@@ -28,14 +28,14 @@ function get(path, { method = 'GET', host = 'localhost', target = server } = {})
   });
 }
 
-test('local API exposes the eight lectures, curated lessons and current revision', async () => {
+test('local API exposes the ten lectures, curated lessons and current revision', async () => {
   const health = await get('/api/health');
   assert.equal(health.status, 200);
   assert.deepEqual(JSON.parse(health.body), { status: 'ok', localOnly: true });
   const catalog = await get('/api/catalog');
   assert.equal(catalog.status, 200);
   const course = JSON.parse(catalog.body);
-  assert.deepEqual(course.lectures.map(lecture => lecture.id), [1, 2, 3, 4, 5, 6, 7, 8]);
+  assert.deepEqual(course.lectures.map(lecture => lecture.id), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   for (const lecture of course.lectures) {
     const response = await get(`/api/lectures/${lecture.id}`);
     assert.equal(response.status, 200);
@@ -117,8 +117,8 @@ test('private paths, unknown API entries and encoded traversal cannot expose wor
   const paths = [
     '/package.json', '/package-lock.json', '/server.mjs', '/content.mjs', '/content/course.json',
     '/.omx/state/current.json', '/node_modules/marked/package.json', '/vendor/marked/package.json',
-    '/vendor/katex/fonts/../../package.json', '/lectures/README.md', '/lectures/9.md',
-    '/api/lectures/9', '/api/lessons/missing', '/lecture-assets/../../package.json',
+    '/vendor/katex/fonts/../../package.json', '/lectures/README.md', '/lectures/11.md',
+    '/api/lectures/11', '/api/lessons/missing', '/lecture-assets/../../package.json',
     '/lecture-assets/%2e%2e%2f%2e%2e%2fpackage.json', '/lecture-assets/..%5c..%5csecret.png',
     '/vendor/katex/fonts/%2e%2e%2fkatex.mjs'
   ];
@@ -144,8 +144,8 @@ test('an image symlink outside the lecture asset root is not served', async () =
   }
 });
 
-test('lecture 6–8 routes are allowed while lecture 9 remains outside the allowlist', async () => {
-  for (const id of [6, 7, 8]) {
+test('lecture 6–10 routes are allowed while other identifiers stay outside the allowlist', async () => {
+  for (const id of [6, 7, 8, 9, 10]) {
     for (const suffix of ['md', 'pdf']) {
       const response = await get(`/lectures/${id}.${suffix}`);
       assert.equal(response.status, 200, `${id}.${suffix}`);
@@ -153,5 +153,5 @@ test('lecture 6–8 routes are allowed while lecture 9 remains outside the allow
     }
     assert.equal((await get(`/api/lectures/${id}`)).status, 200, `lecture API ${id}`);
   }
-  for (const path of ['/lectures/9.md', '/lectures/9.pdf', '/api/lectures/9']) assert.equal((await get(path)).status, 404, path);
+  for (const path of ['/lectures/11.md', '/lectures/11.pdf', '/api/lectures/11', '/lectures/0.md', '/lectures/09.pdf', '/lectures/010.md', '/lectures/100.pdf', '/api/lectures/0', '/api/lectures/09', '/api/lectures/010', '/api/lectures/100']) assert.equal((await get(path)).status, 404, path);
 });

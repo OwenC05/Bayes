@@ -643,6 +643,188 @@
           "prerequisites": []
         }
       ]
+    },
+    {
+      "id": 9,
+      "shortTitle": "MCMC & Hamiltonian Monte Carlo",
+      "title": "MCMC & Hamiltonian Monte Carlo",
+      "description": "Construct target-invariant Markov chains, derive Metropolis-Hastings and HMC, understand correlated-sample accuracy and geometry, and average regression predictions under posterior hyperparameter draws.",
+      "topics": [
+        {
+          "id": "l9-mcmc-foundations",
+          "title": "Bayesian expectations, Markov chains and stationarity",
+          "status": "not-started",
+          "slides": "1–6",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-metropolis",
+          "title": "Metropolis-Hastings algorithm and detailed balance",
+          "status": "not-started",
+          "slides": "7–10",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-diagnostics",
+          "title": "Burn-in, autocorrelation, ESS and thinning",
+          "status": "not-started",
+          "slides": "11",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-random-walk",
+          "title": "Random-walk examples and directional length scales",
+          "status": "not-started",
+          "slides": "12–16",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-hmc-foundations",
+          "title": "Typical probability mass and the Hamiltonian target",
+          "status": "not-started",
+          "slides": "17–18",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-hmc-algorithm",
+          "title": "Leapfrog, acceptance and the correlated HMC example",
+          "status": "not-started",
+          "slides": "19",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-regression",
+          "title": "Collapsed regression targets and posterior prediction",
+          "status": "not-started",
+          "slides": "20–22",
+          "prerequisites": []
+        },
+        {
+          "id": "l9-hmc-tuning",
+          "title": "HMC tuning, NUTS, reading and software boundaries",
+          "status": "not-started",
+          "slides": "23–26",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "shortTitle": "Probabilistic programming",
+      "title": "Probabilistic Programming — Modern Software for Bayesian Modelling",
+      "description": "Turn a joint model into a declaration, then distinguish prior simulation, posterior inference, prediction and diagnostic evidence. Prepared content is not mastery.",
+      "topics": [
+        {
+          "id": "l10-hmc-recap",
+          "title": "Reconnect HMC samples to Bayesian predictions",
+          "status": "not-started",
+          "slides": "1, 2, 3, 4, 5, 6",
+          "prerequisites": [
+            "Unnormalised target",
+            "Posterior predictive"
+          ]
+        },
+        {
+          "id": "l10-tuning-nuts",
+          "title": "Separate trajectory tuning from model correctness",
+          "status": "not-started",
+          "slides": "7, 8",
+          "prerequisites": [
+            "Numerical integration",
+            "Markov-chain dependence"
+          ]
+        },
+        {
+          "id": "l10-graphical-models",
+          "title": "Read a graph as a factorisation, not a fitting result",
+          "status": "not-started",
+          "slides": "9",
+          "prerequisites": [
+            "Product rule",
+            "Observed versus latent"
+          ]
+        },
+        {
+          "id": "l10-declarative-models",
+          "title": "One declared joint model, several inferential questions",
+          "status": "not-started",
+          "slides": "10",
+          "prerequisites": [
+            "Joint distribution",
+            "Conditioning"
+          ]
+        },
+        {
+          "id": "l10-beta-benchmark",
+          "title": "Derive an exact benchmark before trusting a sampler",
+          "status": "not-started",
+          "slides": "11",
+          "prerequisites": [
+            "Bernoulli likelihood",
+            "Beta density"
+          ]
+        },
+        {
+          "id": "l10-numpyro-model",
+          "title": "Translate Beta–Bernoulli factors into named sample sites",
+          "status": "not-started",
+          "slides": "12, 13, 14",
+          "prerequisites": [
+            "Conjugate model",
+            "Array indexing"
+          ]
+        },
+        {
+          "id": "l10-prior-predictive",
+          "title": "Separate prior parameter draws from prior predictive outcomes",
+          "status": "not-started",
+          "slides": "15",
+          "prerequisites": [
+            "Generative hierarchy",
+            "Expectation"
+          ]
+        },
+        {
+          "id": "l10-posterior-run",
+          "title": "Read the NUTS run as conditioned inference, not new data",
+          "status": "not-started",
+          "slides": "16",
+          "prerequisites": [
+            "Posterior update",
+            "Warmup versus sampling"
+          ]
+        },
+        {
+          "id": "l10-summaries-traces",
+          "title": "Read posterior summaries and traces as different evidence",
+          "status": "not-started",
+          "slides": "17, 18",
+          "prerequisites": [
+            "Posterior spread",
+            "Monte Carlo estimate"
+          ]
+        },
+        {
+          "id": "l10-diagnostic-limits",
+          "title": "Interpret ESS, intervals, R-hat and divergences critically",
+          "status": "not-started",
+          "slides": "19",
+          "prerequisites": [
+            "Autocorrelation",
+            "Variance decomposition"
+          ]
+        },
+        {
+          "id": "l10-hierarchical-preview",
+          "title": "Carry the workflow forward without inventing the next lecture",
+          "status": "not-started",
+          "slides": "20, 21",
+          "prerequisites": [
+            "Latent-variable joint",
+            "Inference versus implementation"
+          ]
+        }
+      ]
     }
   ],
   "lessons": [
@@ -2512,7 +2694,630 @@
           "detail": "The IID derivation does not directly apply to correlated draws."
         }
       ],
-      "teachback": "Contrast global importance proposals with local MCMC proposals, and explain why a local random walk alone is not a correct posterior sampler."
+      "teachback": "Contrast global importance proposals with local MCMC proposals, and explain why a local random walk alone is not a correct posterior sampler.",
+      "next": "l9-mcmc-roadmap"
+    },
+    {
+      "id": "l9-mcmc-roadmap",
+      "title": "From global proposals to a local sampling chain",
+      "deck": "Keep the Bayesian expectation fixed while changing how its representative parameter values are obtained.",
+      "lecture": 9,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l9-mcmc-roadmap.md",
+      "topicId": "l9-mcmc-foundations",
+      "sourceSlides": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "prerequisites": [
+        {
+          "title": "Expectation",
+          "detail": "An expectation averages a specified function under a specified probability distribution; the function and sampling distribution have different roles."
+        },
+        {
+          "title": "Importance sampling",
+          "detail": "Proposal draws can be reweighted to a target, but a poor global proposal can give rare, dominant weights."
+        }
+      ],
+      "teachback": "Explain the input, rule and output in a Bayesian Monte Carlo expectation, then contrast global importance weighting with a target-invariant local Markov chain.",
+      "next": "l9-markov-chains"
+    },
+    {
+      "id": "l9-markov-chains",
+      "title": "Transitions, stationarity and convergence are different claims",
+      "deck": "Read a Markov transition rule and distinguish an equilibrium distribution from successful convergence to it.",
+      "lecture": 9,
+      "slide": 5,
+      "page": 3,
+      "file": "lessons/l9-markov-chains.md",
+      "topicId": "l9-mcmc-foundations",
+      "sourceSlides": [
+        5,
+        6
+      ],
+      "prerequisites": [
+        {
+          "title": "Conditional independence",
+          "detail": "Once the present state is given, the next state of a first-order chain does not additionally depend on older states."
+        },
+        {
+          "title": "Probability vectors",
+          "detail": "A discrete distribution has nonnegative entries summing to one; a transition row has the same normalisation."
+        }
+      ],
+      "teachback": "Define a transition kernel, calculate a stationary distribution for a small chain, and explain why reachability and periodicity matter beyond the stationarity equation.",
+      "next": "l9-metropolis-hastings"
+    },
+    {
+      "id": "l9-metropolis-hastings",
+      "title": "Run Metropolis-Hastings without dropping rejected states",
+      "deck": "Derive the acceptance ratio, distinguish proposals from retained states and work a complete accepted/rejected transition.",
+      "lecture": 9,
+      "slide": 7,
+      "page": 7,
+      "file": "lessons/l9-metropolis-hastings.md",
+      "topicId": "l9-metropolis",
+      "sourceSlides": [
+        7,
+        8,
+        9
+      ],
+      "prerequisites": [
+        {
+          "title": "Unnormalised targets",
+          "detail": "Multiplying an unnormalised density by a positive constant leaves its normalised probability distribution unchanged."
+        },
+        {
+          "title": "Conditional proposals",
+          "detail": "The forward proposal Q(new|old) and reverse proposal Q(old|new) need not be equal."
+        }
+      ],
+      "teachback": "Explain every term in the MH acceptance ratio, show where the normalising constant cancels, and execute an iteration including what gets recorded on rejection.",
+      "next": "l9-detailed-balance"
+    },
+    {
+      "id": "l9-detailed-balance",
+      "title": "Prove invariance using detailed balance—not a convergence shortcut",
+      "deck": "Use equal probability flow to justify MH and distinguish sufficient reversibility from necessary global stationarity.",
+      "lecture": 9,
+      "slide": 10,
+      "page": 10,
+      "file": "lessons/l9-detailed-balance.md",
+      "topicId": "l9-metropolis",
+      "sourceSlides": [
+        10
+      ],
+      "prerequisites": [
+        {
+          "title": "Probability flow",
+          "detail": "At equilibrium, target probability at the old state multiplied by transition probability is probability flow to a new state."
+        },
+        {
+          "title": "MH acceptance",
+          "detail": "The acceptance probability multiplies the proposal transition; rejected probability remains at the old state."
+        }
+      ],
+      "teachback": "Reconstruct the minimum-of-two-flows MH proof, explain how rejection enters the kernel, and distinguish detailed balance, invariance and convergence.",
+      "next": "l9-correlated-samples"
+    },
+    {
+      "id": "l9-correlated-samples",
+      "title": "Burn-in, autocorrelation and effective sample size",
+      "deck": "Explain why a valid dependent chain can estimate expectations and why thinning is not a universal remedy.",
+      "lecture": 9,
+      "slide": 11,
+      "page": 11,
+      "file": "lessons/l9-correlated-samples.md",
+      "topicId": "l9-diagnostics",
+      "sourceSlides": [
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Monte Carlo error",
+          "detail": "For IID samples, estimator variance is population function variance divided by the number of draws."
+        },
+        {
+          "title": "Covariance",
+          "detail": "Variance of a sum includes cross-covariances when its terms are dependent; those terms need not vanish."
+        }
+      ],
+      "teachback": "Derive the covariance correction to Monte Carlo variance, distinguish posterior SD from MCSE, and explain what burn-in and thinning can and cannot accomplish.",
+      "next": "l9-random-walk-geometry"
+    },
+    {
+      "id": "l9-random-walk-geometry",
+      "title": "Why small steps and large steps can both fail",
+      "deck": "Connect the source plots to directional length scales and derive the heuristic squared-distance cost of random-walk exploration.",
+      "lecture": 9,
+      "slide": 12,
+      "page": 12,
+      "file": "lessons/l9-random-walk-geometry.md",
+      "topicId": "l9-random-walk",
+      "sourceSlides": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "prerequisites": [
+        {
+          "title": "Gaussian covariance",
+          "detail": "Eigenvectors describe principal directions and the square roots of covariance eigenvalues give their standard-deviation scales."
+        },
+        {
+          "title": "Random-walk displacement",
+          "detail": "Independent, zero-mean increments add variances rather than adding their signed displacements coherently."
+        }
+      ],
+      "teachback": "Use target and proposal geometry to explain both tiny-step and oversized-step failure, then derive the squared-length-ratio heuristic and state its limitations.",
+      "next": "l9-typical-mass"
+    },
+    {
+      "id": "l9-typical-mass",
+      "title": "High density is not where all Gaussian probability lives",
+      "deck": "Distinguish a Gaussian mode from its typical-radius region before interpreting HMC as motion through probability mass.",
+      "lecture": 9,
+      "slide": 17,
+      "page": 21,
+      "file": "lessons/l9-typical-mass.md",
+      "topicId": "l9-hmc-foundations",
+      "sourceSlides": [
+        17
+      ],
+      "prerequisites": [
+        {
+          "title": "Density and volume",
+          "detail": "Probability of a region is the integral of density over its volume; the height at one point is not that probability."
+        },
+        {
+          "title": "Gaussian squared norm",
+          "detail": "For independent standard normal coordinates, squared coordinate values have mean 1 and variance 2."
+        }
+      ],
+      "teachback": "Derive the Gaussian radial-density mode and explain, without conflating density and probability, why representative draws are far from the origin in high dimensions.",
+      "next": "l9-hamiltonian-target"
+    },
+    {
+      "id": "l9-hamiltonian-target",
+      "title": "Add momentum without changing the parameter target",
+      "deck": "Derive the joint position–momentum density, Hamilton equations and the reason unknown normalisation is harmless.",
+      "lecture": 9,
+      "slide": 18,
+      "page": 25,
+      "file": "lessons/l9-hamiltonian-target.md",
+      "topicId": "l9-hmc-foundations",
+      "sourceSlides": [
+        18
+      ],
+      "prerequisites": [
+        {
+          "title": "Log-density gradients",
+          "detail": "A gradient is a vector of partial derivatives indicating local change of a scalar log density with respect to its coordinates."
+        },
+        {
+          "title": "Auxiliary variables",
+          "detail": "Introducing an extra variable is legitimate when integrating it out recovers the original target."
+        }
+      ],
+      "teachback": "Derive the extended target and Hamilton equations, explain the unit-mass assumption, and show why an unknown normalising constant affects neither the force nor acceptance ratios.",
+      "next": "l9-leapfrog-acceptance"
+    },
+    {
+      "id": "l9-leapfrog-acceptance",
+      "title": "From numerical trajectories to a valid HMC transition",
+      "deck": "Reconstruct leapfrog and the energy-based acceptance correction while interpreting the source correlated-target example cautiously.",
+      "lecture": 9,
+      "slide": 19,
+      "page": 26,
+      "file": "lessons/l9-leapfrog-acceptance.md",
+      "topicId": "l9-hmc-algorithm",
+      "sourceSlides": [
+        19
+      ],
+      "prerequisites": [
+        {
+          "title": "Hamiltonian system",
+          "detail": "For identity mass, position derivative equals momentum and momentum derivative equals the log-target gradient."
+        },
+        {
+          "title": "Metropolis correction",
+          "detail": "Acceptance compares target probability flow between proposals; rejection retains the existing parameter state."
+        }
+      ],
+      "teachback": "Write the three leapfrog updates and a complete HMC iteration, explain the energy-difference sign, and distinguish low rejection from independence or convergence.",
+      "next": "l9-regression-target"
+    },
+    {
+      "id": "l9-regression-target",
+      "title": "Sample regression hyperparameters in consistent coordinates",
+      "deck": "Build the analytically marginalised regression target and transform bounded log-scale priors without losing or duplicating Jacobians.",
+      "lecture": 9,
+      "slide": 20,
+      "page": 27,
+      "file": "lessons/l9-regression-target.md",
+      "topicId": "l9-regression",
+      "sourceSlides": [
+        20
+      ],
+      "prerequisites": [
+        {
+          "title": "Gaussian evidence",
+          "detail": "Integrating a Gaussian weight prior through a Gaussian observation model gives a Gaussian marginal likelihood for the observed response vector."
+        },
+        {
+          "title": "Change of variables",
+          "detail": "A transformed density includes the absolute Jacobian determinant so that probability is unchanged by coordinates."
+        }
+      ],
+      "teachback": "Build the collapsed regression posterior, derive its log density, identify what is fixed or integrated out, and transform a log-uniform prior between variance and log-scale coordinates.",
+      "next": "l9-predictive-mixtures"
+    },
+    {
+      "id": "l9-predictive-mixtures",
+      "title": "Read HMC predictions and marginal histograms without losing uncertainty",
+      "deck": "Average conditional predictions under joint posterior draws, derive total variance and interpret the plotted hyperparameter marginals.",
+      "lecture": 9,
+      "slide": 21,
+      "page": 27,
+      "file": "lessons/l9-predictive-mixtures.md",
+      "topicId": "l9-regression",
+      "sourceSlides": [
+        21,
+        22
+      ],
+      "prerequisites": [
+        {
+          "title": "Posterior predictive components",
+          "detail": "For fixed hyperparameters, integrating Gaussian weight uncertainty yields a predictive mean and variance."
+        },
+        {
+          "title": "Mixture moments",
+          "detail": "Total variance contains both average conditional variance and variance of conditional means."
+        }
+      ],
+      "teachback": "Derive the posterior-sample predictive mixture and both variance components, then explain what the three source histograms retain and what joint information they discard.",
+      "next": "l9-hmc-tuning"
+    },
+    {
+      "id": "l9-hmc-tuning",
+      "title": "Step size, trajectory length and what NUTS automates",
+      "deck": "Explain HMC tuning through accuracy, movement and computational cost without treating an acceptance percentage as a proof.",
+      "lecture": 9,
+      "slide": 23,
+      "page": 31,
+      "file": "lessons/l9-hmc-tuning.md",
+      "topicId": "l9-hmc-tuning",
+      "sourceSlides": [
+        23
+      ],
+      "prerequisites": [
+        {
+          "title": "Leapfrog integration",
+          "detail": "Numerical Hamiltonian motion uses a finite step size and a chosen number of steps, followed by a Metropolis correction."
+        },
+        {
+          "title": "Sampling efficiency",
+          "detail": "The useful output is accurate expectations per computational effort, not just a large nominal draw count or acceptance rate."
+        }
+      ],
+      "teachback": "Explain the separate effects of step size, integration time and geometry, compare efficiency per computational cost, and describe what NUTS automates without promising convergence.",
+      "next": "l9-reading-software-boundaries"
+    },
+    {
+      "id": "l9-reading-software-boundaries",
+      "title": "What is established, what is a demo and what comes next",
+      "deck": "Connect the lecture sequence to its reading and software previews without treating unprovided demos as completed work.",
+      "lecture": 9,
+      "slide": 24,
+      "page": 32,
+      "file": "lessons/l9-reading-software-boundaries.md",
+      "topicId": "l9-hmc-tuning",
+      "sourceSlides": [
+        24,
+        25,
+        26
+      ],
+      "prerequisites": [
+        {
+          "title": "Model versus algorithm",
+          "detail": "A probabilistic model defines a target distribution; an inference algorithm approximates quantities under that target."
+        },
+        {
+          "title": "Prepared versus verified",
+          "detail": "Reading a lesson or viewing a source plot does not show that code ran, a sampler converged or a learner independently reconstructed the mathematics."
+        }
+      ],
+      "teachback": "Give a beginner-facing account of the full expectation → MH → HMC → prediction chain, name its assumptions and diagnostics, and distinguish supplied evidence from unexecuted demo/software previews.",
+      "next": "l10-hmc-recap"
+    },
+    {
+      "id": "l10-hmc-recap",
+      "title": "Reconnect HMC samples to Bayesian predictions",
+      "deck": "Explain the HMC joint target and acceptance sign, then derive how its retained hyperparameter draws enter a regression prediction.",
+      "lecture": 10,
+      "slide": 1,
+      "page": 1,
+      "file": "lessons/l10-hmc-recap.md",
+      "topicId": "l10-hmc-recap",
+      "sourceSlides": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "prerequisites": [
+        {
+          "title": "Unnormalised target",
+          "detail": "The posterior can be evaluated up to a constant even when its evidence is unavailable."
+        },
+        {
+          "title": "Posterior predictive",
+          "detail": "Predictive density averages a conditional observation model over posterior parameter uncertainty."
+        }
+      ],
+      "teachback": "Explain the HMC joint target and acceptance sign, then derive how its retained hyperparameter draws enter a regression prediction.",
+      "next": "l10-tuning-nuts"
+    },
+    {
+      "id": "l10-tuning-nuts",
+      "title": "Separate trajectory tuning from model correctness",
+      "deck": "Explain the roles of step size, trajectory length and NUTS, and why acceptance rate alone cannot validate an inference.",
+      "lecture": 10,
+      "slide": 7,
+      "page": 4,
+      "file": "lessons/l10-tuning-nuts.md",
+      "topicId": "l10-tuning-nuts",
+      "sourceSlides": [
+        7,
+        8
+      ],
+      "prerequisites": [
+        {
+          "title": "Numerical integration",
+          "detail": "A finite step size introduces energy error even when the ideal Hamiltonian flow conserves energy."
+        },
+        {
+          "title": "Markov-chain dependence",
+          "detail": "Many accepted positions can still be strongly correlated and give few effective samples."
+        }
+      ],
+      "teachback": "Explain the roles of step size, trajectory length and NUTS, and why acceptance rate alone cannot validate an inference.",
+      "next": "l10-graphical-models"
+    },
+    {
+      "id": "l10-graphical-models",
+      "title": "Read a graph as a factorisation, not a fitting result",
+      "deck": "Factorise the lecture graph, identify its conditional independence, and distinguish the generative direction from posterior inference.",
+      "lecture": 10,
+      "slide": 9,
+      "page": 7,
+      "file": "lessons/l10-graphical-models.md",
+      "topicId": "l10-graphical-models",
+      "sourceSlides": [
+        9
+      ],
+      "prerequisites": [
+        {
+          "title": "Product rule",
+          "detail": "A joint distribution can be written as conditional factors multiplied together."
+        },
+        {
+          "title": "Observed versus latent",
+          "detail": "Conditioning on a measured quantity differs from integrating an unknown quantity out."
+        }
+      ],
+      "teachback": "Factorise the lecture graph, identify its conditional independence, and distinguish the generative direction from posterior inference.",
+      "next": "l10-declarative-models"
+    },
+    {
+      "id": "l10-declarative-models",
+      "title": "One declared joint model, several inferential questions",
+      "deck": "Explain how one model function supports prior simulation, posterior inference and prediction without confusing the model with the inference algorithm.",
+      "lecture": 10,
+      "slide": 10,
+      "page": 8,
+      "file": "lessons/l10-declarative-models.md",
+      "topicId": "l10-declarative-models",
+      "sourceSlides": [
+        10
+      ],
+      "prerequisites": [
+        {
+          "title": "Joint distribution",
+          "detail": "A probabilistic model specifies how all random variables fit together, not just a prediction formula."
+        },
+        {
+          "title": "Conditioning",
+          "detail": "Posterior inference fixes observations and changes the distribution over latent quantities."
+        }
+      ],
+      "teachback": "Explain how one model function supports prior simulation, posterior inference and prediction without confusing the model with the inference algorithm.",
+      "next": "l10-beta-benchmark"
+    },
+    {
+      "id": "l10-beta-benchmark",
+      "title": "Derive an exact benchmark before trusting a sampler",
+      "deck": "Derive the Beta–Bernoulli posterior, distinguish sequence and count likelihoods, and calculate the exact benchmark for the printed dataset.",
+      "lecture": 10,
+      "slide": 11,
+      "page": 9,
+      "file": "lessons/l10-beta-benchmark.md",
+      "topicId": "l10-beta-benchmark",
+      "sourceSlides": [
+        11
+      ],
+      "prerequisites": [
+        {
+          "title": "Bernoulli likelihood",
+          "detail": "Conditional independence makes the sequence likelihood a product of success and failure probabilities."
+        },
+        {
+          "title": "Beta density",
+          "detail": "The Beta distribution has powers alpha minus one and beta minus one on the interval zero to one."
+        }
+      ],
+      "teachback": "Derive the Beta–Bernoulli posterior, distinguish sequence and count likelihoods, and calculate the exact benchmark for the printed dataset.",
+      "next": "l10-numpyro-model"
+    },
+    {
+      "id": "l10-numpyro-model",
+      "title": "Translate Beta–Bernoulli factors into named sample sites",
+      "deck": "Explain every source model line, expose the hyperparameter ordering, and distinguish rendering the model from fitting it.",
+      "lecture": 10,
+      "slide": 12,
+      "page": 9,
+      "file": "lessons/l10-numpyro-model.md",
+      "topicId": "l10-numpyro-model",
+      "sourceSlides": [
+        12,
+        13,
+        14
+      ],
+      "prerequisites": [
+        {
+          "title": "Conjugate model",
+          "detail": "A Beta prior times a conditionally independent Bernoulli likelihood defines the target joint."
+        },
+        {
+          "title": "Array indexing",
+          "detail": "Python arrays start at zero, so the order of hyperparameter entries must be read explicitly."
+        }
+      ],
+      "teachback": "Explain every source model line, expose the hyperparameter ordering, and distinguish rendering the model from fitting it.",
+      "next": "l10-prior-predictive"
+    },
+    {
+      "id": "l10-prior-predictive",
+      "title": "Separate prior parameter draws from prior predictive outcomes",
+      "deck": "Explain the two arrays returned by Predictive, derive prior predictive dependence, and state why independent JAX operations need distinct random keys.",
+      "lecture": 10,
+      "slide": 15,
+      "page": 11,
+      "file": "lessons/l10-prior-predictive.md",
+      "topicId": "l10-prior-predictive",
+      "sourceSlides": [
+        15
+      ],
+      "prerequisites": [
+        {
+          "title": "Generative hierarchy",
+          "detail": "First draw a parameter, then generate observations conditional on that parameter."
+        },
+        {
+          "title": "Expectation",
+          "detail": "A marginal event probability averages its conditional probability over the parameter distribution."
+        }
+      ],
+      "teachback": "Explain the two arrays returned by Predictive, derive prior predictive dependence, and state why independent JAX operations need distinct random keys.",
+      "next": "l10-posterior-run"
+    },
+    {
+      "id": "l10-posterior-run",
+      "title": "Read the NUTS run as conditioned inference, not new data",
+      "deck": "Translate the printed NUTS configuration into its statistical target, retained-sample meaning, exact benchmark and separate predictive task.",
+      "lecture": 10,
+      "slide": 16,
+      "page": 11,
+      "file": "lessons/l10-posterior-run.md",
+      "topicId": "l10-posterior-run",
+      "sourceSlides": [
+        16
+      ],
+      "prerequisites": [
+        {
+          "title": "Posterior update",
+          "detail": "For fixed observations, the latent probability is distributed according to prior times likelihood, normalised."
+        },
+        {
+          "title": "Warmup versus sampling",
+          "detail": "Adaptation before retained draws has a different purpose from estimating posterior expectations."
+        }
+      ],
+      "teachback": "Translate the printed NUTS configuration into its statistical target, retained-sample meaning, exact benchmark and separate predictive task.",
+      "next": "l10-summaries-traces"
+    },
+    {
+      "id": "l10-summaries-traces",
+      "title": "Read posterior summaries and traces as different evidence",
+      "deck": "Distinguish posterior spread from Monte Carlo error, compare the printed summaries with the exact posterior, and explain what each trace-plot panel can reveal.",
+      "lecture": 10,
+      "slide": 17,
+      "page": 12,
+      "file": "lessons/l10-summaries-traces.md",
+      "topicId": "l10-summaries-traces",
+      "sourceSlides": [
+        17,
+        18
+      ],
+      "prerequisites": [
+        {
+          "title": "Posterior spread",
+          "detail": "Standard deviation describes variation in the unknown parameter under its posterior distribution."
+        },
+        {
+          "title": "Monte Carlo estimate",
+          "detail": "A sample mean approximates a distributional expectation and has its own numerical uncertainty."
+        }
+      ],
+      "teachback": "Distinguish posterior spread from Monte Carlo error, compare the printed summaries with the exact posterior, and explain what each trace-plot panel can reveal.",
+      "next": "l10-diagnostic-limits"
+    },
+    {
+      "id": "l10-diagnostic-limits",
+      "title": "Interpret ESS, intervals, R-hat and divergences critically",
+      "deck": "Explain interval type, effective sample size, multi-chain convergence diagnostics and divergences without treating any one favourable number as proof.",
+      "lecture": 10,
+      "slide": 19,
+      "page": 13,
+      "file": "lessons/l10-diagnostic-limits.md",
+      "topicId": "l10-diagnostic-limits",
+      "sourceSlides": [
+        19
+      ],
+      "prerequisites": [
+        {
+          "title": "Autocorrelation",
+          "detail": "Neighbouring chain states can contain overlapping information, affecting the variance of Monte Carlo estimates."
+        },
+        {
+          "title": "Variance decomposition",
+          "detail": "Within-chain variation and disagreement across chains answer different diagnostic questions."
+        }
+      ],
+      "teachback": "Explain interval type, effective sample size, multi-chain convergence diagnostics and divergences without treating any one favourable number as proof.",
+      "next": "l10-hierarchical-preview"
+    },
+    {
+      "id": "l10-hierarchical-preview",
+      "title": "Carry the workflow forward without inventing the next lecture",
+      "deck": "Reconstruct the modelling-to-diagnostics workflow and explain what hierarchical modelling adds, while separating the source preview from completed instruction.",
+      "lecture": 10,
+      "slide": 20,
+      "page": 14,
+      "file": "lessons/l10-hierarchical-preview.md",
+      "topicId": "l10-hierarchical-preview",
+      "sourceSlides": [
+        20,
+        21
+      ],
+      "prerequisites": [
+        {
+          "title": "Latent-variable joint",
+          "detail": "Adding an upstream random quantity adds a prior and conditional factors to a joint distribution."
+        },
+        {
+          "title": "Inference versus implementation",
+          "detail": "A library can automate sampling machinery while leaving modelling assumptions and diagnostics to the analyst."
+        }
+      ],
+      "teachback": "Reconstruct the modelling-to-diagnostics workflow and explain what hierarchical modelling adds, while separating the source preview from completed instruction."
     }
   ],
   "sourceWarnings": [
@@ -2660,6 +3465,51 @@
       "lecture": 8,
       "slide": 26,
       "text": "MCMC is a preview only. Local proposals alone are not a complete algorithm, and correlated chain draws need stationarity/ergodicity and suitable mixing conditions rather than the earlier IID assumption."
+    },
+    {
+      "lecture": 9,
+      "slide": 6,
+      "text": "The printed PDF names a transition matrix but does not display numerical entries. The following pages show realised state-versus-time traces and an evolving distribution, not a recoverable complete matrix."
+    },
+    {
+      "lecture": 9,
+      "slide": 17,
+      "text": "The high-dimensional geometry illustrations do not specify exact regions. Density peaks, radial probability mass and nested coordinate-box fractions are different objects; interpret the original plots with the labelled qualifications."
+    },
+    {
+      "lecture": 9,
+      "slide": 10,
+      "text": "Detailed balance is sufficient for stationarity, not necessary for all convergent chains. Convergence from an arbitrary start requires additional ergodicity conditions."
+    },
+    {
+      "lecture": 9,
+      "slide": 11,
+      "text": "Correlated draws do not make routine thinning necessary. Burn-in and thinning do not guarantee equilibrium or independence; assess mixing, effective sample size and Monte Carlo error."
+    },
+    {
+      "lecture": 9,
+      "slide": 18,
+      "text": "HMC does not guarantee independent successive states. Its potential is minus log target; the identity-mass momentum convention is used. Numerical integration requires an appropriate reversible, volume-preserving proposal and acceptance correction."
+    },
+    {
+      "lecture": 9,
+      "slide": 20,
+      "text": "Log-uniform scale priors need finite bounds for proper normalisation and consistent Jacobians when changing between raw and log coordinates or sigma and sigma-squared. Posterior draws are averaged without another posterior-density weighting."
+    },
+    {
+      "lecture": 10,
+      "slide": 2,
+      "text": "HMC states are not guaranteed independent; no automatic thinning is required. The source superlative and software ecosystem statements are historical, not an updated comparison or installation instruction."
+    },
+    {
+      "lecture": 10,
+      "slide": 13,
+      "text": "The source code uses hypers=[failure shape, success shape], the reverse of Beta(alpha,beta) mathematical ordering. Observing a vector implies a product likelihood; an explicit plate makes the conditional independence and generated dataset size clear."
+    },
+    {
+      "lecture": 10,
+      "slide": 19,
+      "text": "NumPyro print_summary reports a highest-posterior-density interval, not generally the equal-tail percentiles described by the slide. The printed output is clipped; one-chain split-R-hat, effective sample size and zero divergences are diagnostics, not proofs of convergence."
     }
   ]
 }

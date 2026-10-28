@@ -1,6 +1,6 @@
 # Lecture lesson coverage
 
-Prepared tutor lessons for Lectures 3–8. Source slides are grouped into coherent learning units; each unit adds prerequisite bridges, explanations, worked examples and teach-back. **Prepared does not mean learned or mastered.**
+Prepared tutor lessons for Lectures 3–10. Source slides are grouped into coherent learning units; each unit adds prerequisite bridges, explanations, worked examples and teach-back. **Prepared does not mean learned or mastered.**
 
 Current teaching point: Lecture 3, slide 6, `l3-bayesian-workflow`. Original `BayesLec` files remain the source inputs.
 
@@ -114,6 +114,44 @@ Current teaching point: Lecture 3, slide 6, `l3-bayesian-workflow`. Original `Ba
 | [Where high-dimensional Gaussian probability mass lives](lessons/l8-gaussian-mass.md) | 25 |
 | [MCMC preview: local moves, correlated samples](lessons/l8-mcmc-preview.md) | 26 |
 
+## Lecture 9: MCMC & Hamiltonian Monte Carlo
+
+13 lessons covering all 26 source slides.
+
+| Lesson | Source slides |
+| --- | --- |
+| [From global proposals to a local sampling chain](lessons/l9-mcmc-roadmap.md) | 1, 2, 3, 4 |
+| [Transitions, stationarity and convergence are different claims](lessons/l9-markov-chains.md) | 5, 6 |
+| [Run Metropolis-Hastings without dropping rejected states](lessons/l9-metropolis-hastings.md) | 7, 8, 9 |
+| [Prove invariance using detailed balance—not a convergence shortcut](lessons/l9-detailed-balance.md) | 10 |
+| [Burn-in, autocorrelation and effective sample size](lessons/l9-correlated-samples.md) | 11 |
+| [Why small steps and large steps can both fail](lessons/l9-random-walk-geometry.md) | 12, 13, 14, 15, 16 |
+| [High density is not where all Gaussian probability lives](lessons/l9-typical-mass.md) | 17 |
+| [Add momentum without changing the parameter target](lessons/l9-hamiltonian-target.md) | 18 |
+| [From numerical trajectories to a valid HMC transition](lessons/l9-leapfrog-acceptance.md) | 19 |
+| [Sample regression hyperparameters in consistent coordinates](lessons/l9-regression-target.md) | 20 |
+| [Read HMC predictions and marginal histograms without losing uncertainty](lessons/l9-predictive-mixtures.md) | 21, 22 |
+| [Step size, trajectory length and what NUTS automates](lessons/l9-hmc-tuning.md) | 23 |
+| [What is established, what is a demo and what comes next](lessons/l9-reading-software-boundaries.md) | 24, 25, 26 |
+
+## Lecture 10: Probabilistic programming
+
+11 lessons covering all 21 source slides.
+
+| Lesson | Source slides |
+| --- | --- |
+| [Reconnect HMC samples to Bayesian predictions](lessons/l10-hmc-recap.md) | 1, 2, 3, 4, 5, 6 |
+| [Separate trajectory tuning from model correctness](lessons/l10-tuning-nuts.md) | 7, 8 |
+| [Read a graph as a factorisation, not a fitting result](lessons/l10-graphical-models.md) | 9 |
+| [One declared joint model, several inferential questions](lessons/l10-declarative-models.md) | 10 |
+| [Derive an exact benchmark before trusting a sampler](lessons/l10-beta-benchmark.md) | 11 |
+| [Translate Beta–Bernoulli factors into named sample sites](lessons/l10-numpyro-model.md) | 12, 13, 14 |
+| [Separate prior parameter draws from prior predictive outcomes](lessons/l10-prior-predictive.md) | 15 |
+| [Read the NUTS run as conditioned inference, not new data](lessons/l10-posterior-run.md) | 16 |
+| [Read posterior summaries and traces as different evidence](lessons/l10-summaries-traces.md) | 17, 18 |
+| [Interpret ESS, intervals, R-hat and divergences critically](lessons/l10-diagnostic-limits.md) | 19 |
+| [Carry the workflow forward without inventing the next lecture](lessons/l10-hierarchical-preview.md) | 20, 21 |
+
 ## Scope and caveats
 
 - Lecture 3 lab material is a conceptual preview; the labsheet has not been run.
@@ -122,7 +160,10 @@ Current teaching point: Lecture 3, slide 6, `l3-bayesian-workflow`. Original `Ba
 - Supplemental derivations and numerical examples are labelled; no missing source diagrams or demo outputs are invented.
 - Runtime metadata is maintained in `course.json`. The test suite validates slide coverage, topic links, source pages, images, navigation and all equations.
 
-- Lectures 6–8 add 33 lessons covering all 74 slides; all 60 new original PDF pages are embedded. Total: 72 lessons, including 68 full lessons covering all 145 slides in Lectures 3–8, plus four earlier focused lessons. All eight sources contain 196 slides and 136 original pages.
+- Lectures 6–8 added 33 lessons covering all 74 slides and 60 original PDF pages. Lectures 9–10 add 24 lessons covering all 47 slides and all 49 original PDF pages. Total: 96 lessons, including 92 full lessons covering all 192 slides in Lectures 3–10, plus four earlier focused lessons. All ten sources contain 243 slides and 185 original pages.
 - Lecture 6 distinguishes analytic weight marginalisation from hyperparameter point estimation; sigma annotations denote standard deviations, and flat-log-prior claims require specifying the density coordinates.
 - Lecture 7 distinguishes consistent sigma/sigma-squared measures, deterministic grid quadrature from iid Monte Carlo, and prior-cell masses from posterior predictive weights. Model-family comparison requires proper priors and explicit model probabilities.
-- Lecture 8 distinguishes variance from standard error, ordinary from self-normalised importance sampling, finite-variance assumptions and rare-event failure, and mass from density in high dimensions. The source’s ambiguous geometry is qualified. MCMC remains a conceptual preview.
+- Lecture 8 distinguishes variance from standard error, ordinary from self-normalised importance sampling, finite-variance assumptions and rare-event failure, and mass from density in high dimensions. The source’s ambiguous geometry is qualified. MCMC remains a conceptual preview within Lecture 8; Lecture 9 develops its algorithms separately.
+
+- Lecture 9 distinguishes stationarity from convergence, proposal kernels from accepted transitions, repeated states from discarded proposals, posterior uncertainty from Monte Carlo error, and HMC trajectories from independent samples. Leapfrog derivations and numerical examples are labelled tutor support.
+- Lecture 10 preserves printed NumPyro/JAX code and outputs without claiming execution. The lessons explain observed versus generated sites, Beta ordering, random keys, warmup, posterior prediction and diagnostic limitations, including HPDI versus equal-tail intervals and one-chain split-R-hat. Live-demo and hierarchical-model agendas remain previews.
